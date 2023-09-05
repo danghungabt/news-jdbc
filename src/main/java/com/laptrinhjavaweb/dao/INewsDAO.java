@@ -1,5 +1,9 @@
 package com.laptrinhjavaweb.dao;
 
-public interface INewsDAO {
+import java.util.List;
 
+import com.laptrinhjavaweb.model.NewsModel;
+
+public interface INewsDAO {
+	List<NewsModel> findByCategoryId(Long categoryId);
 }
