@@ -1,13 +1,23 @@
 package com.laptrinhjavaweb.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
-public class AbstractModel {
+public class AbstractModel<T> {
 	private Long id;
 	private Timestamp createdDate;
 	private Timestamp modifiedDate;
 	private String createdBy;
 	private String modifiedBy;
+	private long[] ids;
+	private List<T> listResult = new ArrayList<>();
+	private Integer page;
+	private Integer maxPageItem;
+	private Integer totalPage;
+	private Integer totalItem;
+	private String sortName;
+	private String sortBy;
 
 	public Long getId() {
 		return id;
@@ -49,4 +59,67 @@ public class AbstractModel {
 		this.modifiedBy = modifiedBy;
 	}
 
+	public long[] getIds() {
+		return ids;
+	}
+
+	public void setIds(long[] ids) {
+		this.ids = ids;
+	}
+
+	public List<T> getListResult() {
+		return listResult;
+	}
+
+	public void setListResult(List<T> listResult) {
+		this.listResult = listResult;
+	}
+
+	public Integer getPage() {
+		return page;
+	}
+
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+
+	public Integer getMaxPageItem() {
+		return maxPageItem;
+	}
+
+	public void setMaxPageItem(Integer maxPageItem) {
+		this.maxPageItem = maxPageItem;
+	}
+
+	public Integer getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
+	}
+
+	public Integer getTotalItem() {
+		return totalItem;
+	}
+
+	public void setTotalItem(Integer totalItem) {
+		this.totalItem = totalItem;
+	}
+
+	public String getSortName() {
+		return sortName;
+	}
+
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
+	}
+
+	public String getSortBy() {
+		return sortBy;
+	}
+
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+	}
 }

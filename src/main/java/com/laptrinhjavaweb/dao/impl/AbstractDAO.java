@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -157,5 +158,40 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public int count(String sql, Object... parameters) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			int count = 0;
+			connection = getConnection();
+			statement = connection.prepareStatement(sql);
+			// set parameter
+			setParamater(statement, parameters);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				count = resultSet.getInt(1);
+			}
+			return count;
+		} catch (SQLException e) {
+			return 0;
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+				if (resultSet != null) {
+					resultSet.close();
+				}
+			} catch (SQLException e) {
+				return 0;
+			}
+		}
 	}
 }
