@@ -6,6 +6,7 @@ import com.laptrinhjavaweb.dao.INewsDAO;
 import com.laptrinhjavaweb.mapper.NewsMapper;
 import com.laptrinhjavaweb.model.NewsModel;
 import com.laptrinhjavaweb.paging.Pageable;
+import org.apache.commons.lang.StringUtils;
 
 public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 
@@ -37,7 +38,7 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 	public void update(NewsModel updateNews) {
 		StringBuilder sql = new StringBuilder("UPDATE news SET title = ?, thumbnail = ?,");
 		sql.append(" shortdescription = ?, content = ?, categoryid = ?,");
-		sql.append(" createddate = ?, createdby = ?, modìfieddate = ?, modifiedby = ? WHERE id = ?");
+		sql.append(" createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
 		update(sql.toString(), updateNews.getTitle(), updateNews.getThumbnail(), updateNews.getShortDescription(),
 				updateNews.getContent(), updateNews.getCategoryId(), updateNews.getCreatedDate(),
 				updateNews.getCreatedBy(), updateNews.getModifiedDate(), updateNews.getModifiedBy(),
@@ -53,12 +54,14 @@ public class NewsDAO extends AbstractDAO<NewsModel> implements INewsDAO {
 	@Override
 	public List<NewsModel> findAll(Pageable pageable) {
 		StringBuilder sql = new StringBuilder("SELECT * FROM news");
-		if (pageable.getSorter() != null) {
+		if (pageable.getSorter() != null && StringUtils.isNotBlank(pageable.getSorter().getSortName())
+										 && StringUtils.isNotBlank(pageable.getSorter().getSortBy())) {
 			sql.append(" ORDER BY " + pageable.getSorter().getSortName() + " " + pageable.getSorter().getSortBy());
 		}
 		if (pageable.getOffset() != null && pageable.getLimit() != null) {
 			sql.append(" LIMIT " + pageable.getOffset() + ", " + pageable.getLimit());
 		}
+
 		return query(sql.toString(), new NewsMapper());
 
 	}
