@@ -22,6 +22,11 @@ public class AuthorizationFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
+
+        response.setHeader("Access-Control-Allow-Origin", "*"); // Đây là cấu hình cho phép tất cả các nguồn (*), bạn có thể thay thế bằng nguồn cụ thể của mình.
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
         String url = request.getRequestURI();
         if(url.startsWith("/admin")){
             UserModel model = (UserModel) SessionUtils.getInstance().getValue(request,"USERMODEL");

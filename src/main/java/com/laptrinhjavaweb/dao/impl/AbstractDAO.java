@@ -69,6 +69,39 @@ public class AbstractDAO<T> implements GenericDAO<T> {
         }
     }
 
+    @Override
+    public <T> List<T> search(String sql, RowMapper<T> rowMapper) {
+        List<T> results = new ArrayList<>();
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                results.add(rowMapper.mapRow(resultSet));
+            }
+            return results;
+        } catch (SQLException e) {
+            return null;
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (SQLException e) {
+                return null;
+            }
+        }
+    }
+
     private void setParamater(PreparedStatement statement, Object... parameters) {
         try {
             for (int i = 0; i < parameters.length; i++) {

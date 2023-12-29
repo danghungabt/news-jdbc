@@ -7,28 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f308033-a2e8-4669-8374-20d6e56ba43c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/news_jdbc_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/news_jdbc_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/news_jdbc_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/news_jdbc_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news-jdbc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/news-jdbc.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/NewsAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/NewsAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/web/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/web/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICategoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/GenericDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/GenericDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/NewsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/NewsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/AuthorizationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/AbstractModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/AbstractModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/NewsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/NewsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/INewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/INewsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/NewsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/NewsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/decorators/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/decorators/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/news/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/news/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/paging/PageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/paging/PageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/HttpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/HttpUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,140 +28,34 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1347760289">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="16" />
-          <entry key="project.open.time.0" value="3" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="3" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="17" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="classpath" value="1" />
-          <entry key="iml" value="4" />
-          <entry key="java" value="108" />
-          <entry key="js" value="3" />
-          <entry key="jsp" value="37" />
-          <entry key="project" value="1" />
-          <entry key="properties" value="4" />
-          <entry key="xml" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Eclipse" value="2" />
-          <entry key="IDEA_MODULE" value="4" />
-          <entry key="JAVA" value="108" />
-          <entry key="JSP" value="37" />
-          <entry key="JavaScript" value="3" />
-          <entry key="Properties" value="4" />
-          <entry key="XML" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="13" />
-          <entry key="java" value="2122" />
-          <entry key="jsp" value="868" />
-          <entry key="properties" value="165" />
-          <entry key="xml" value="31" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2122" />
-          <entry key="JSP" value="868" />
-          <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Properties" value="165" />
-          <entry key="XML" value="31" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="50" column="42" lean-forward="true" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/SessionUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/news/edit.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+            <state relative-caret-position="-53">
+              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
               <folding>
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/MessageUtils.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="292">
+              <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/BlogsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/message.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="14" selection-start-line="2" selection-end-line="2" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/news/list.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="26" column="67" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/NewsDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="60" column="57" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
+            <state relative-caret-position="456">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,19 +64,74 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+            <state relative-caret-position="171">
+              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="89" column="33" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="33" />
+            <state relative-caret-position="171">
+              <caret line="9" column="76" lean-forward="true" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="39" column="46" lean-forward="true" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/NewsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+              <folding>
+                <element signature="e#1731#1732#0" expanded="true" />
+                <element signature="e#1769#1770#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/NewsDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/BlogsConverter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/EncodeUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -201,6 +141,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -210,6 +151,7 @@
       <find>sortBy</find>
       <find>NewURL</find>
       <find>modìfieddate</find>
+      <find>serialVersionUID</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -218,43 +160,59 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/SessionUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/common/web/header.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/CategoriesModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/BlogsModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/CommentsModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/CategoriesMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/BlogsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/NewsAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/response/AbtractResponseModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/response/CategoriesResponseModel.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/ModelMapperProducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/CategoriesConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICategoriesDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CategoriesDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/ICategoriesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/response/BlogsResponseModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/CategoriesAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/HttpUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/response/CommentsResponseModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICommnetsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/TreenNodeModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/CommentUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/CommentsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/TreeNodeModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/GenericDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/web/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/AuthenticationFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/message.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/paging/PageRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/PagingModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/IBlogsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/IBlogsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICommentsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CommentsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/ICommentsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/BlogsAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/CommentsAPI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/CorsFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/AuthorizationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/NewsAPI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/NewsModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/AbstractModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/INewsService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/common/admin/menu.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICategoryDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CategoryDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/NewsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/IBlogsConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/BlogsDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/EncodeUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/BlogsConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/ICategoriesConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/CategoriesConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/ICommentsConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/CommentsConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/CommentsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/CategoriesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/BlogsService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/decorators/admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/news/edit.jsp" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/NewsDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/admin/news/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/MessageUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -269,6 +227,11 @@
         <option name="mavenHome" value="C:/Program Files/Maven/apache-maven-3.6.0" />
         <option name="userSettingsFile" value="C:\Program Files\Maven\apache-maven-3.6.0\conf\settings.xml" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -285,6 +248,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -374,6 +338,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
+              <item name="converter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news-jdbc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news-jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
+              <item name="converter" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news-jdbc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news-jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -420,6 +403,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news-jdbc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news-jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
+              <item name="paging" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news-jdbc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news-jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -431,6 +433,15 @@
               <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="news-jdbc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="news-jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="laptrinhjavaweb" type="462c0819:PsiDirectoryNode" />
+              <item name="sort" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="news-jdbc" type="b2602c69:ProjectViewProjectNode" />
@@ -537,7 +548,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -545,16 +555,24 @@
     <property name="SearchEverywhereHistoryKey" value="edit&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/webapp/views/admin/news/edit.jsp&#10;cate&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/dao/impl/CategoryDAO.java&#10;list.&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/webapp/views/admin/news/list.jsp&#10;menu&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/webapp/common/admin/menu.jsp&#10;list&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/webapp/views/admin/news/list.jsp&#10;New&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java&#10;lo&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/webapp/views/login.jsp&#10;c&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/controller/web/HomeController.java&#10;ab&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java&#10;home&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/controller/web/HomeController.java&#10;hom&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/controller/admin/HomeController.java&#10;login&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/webapp/views/login.jsp&#10;a&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java&#10;Ab&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java&#10;Abs&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java&#10;sess&#9;PSI&#9;JAVA://com.laptrinhjavaweb.utils.SessionUtils&#10;user&#9;FILE&#9;file://D:/hoctap/sinhvien/laptrinhjavaweb-youtube/workspace-jsp-servlet/news-jdbc/src/main/java/com/laptrinhjavaweb/mapper/UserMapper.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1698849629149" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1703844330190" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.laptrinhjavaweb.model" />
+      <recent name="com.laptrinhjavaweb.service" />
+      <recent name="com.laptrinhjavaweb.dao" />
+      <recent name="com.laptrinhjavaweb.converter.impl" />
+      <recent name="com.laptrinhjavaweb.converter" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\hoctap\sinhvien\laptrinhjavaweb-youtube\workspace-jsp-servlet\news-jdbc\src\main\webapp" />
       <recent name="D:\hoctap\sinhvien\laptrinhjavaweb-youtube\workspace-jsp-servlet\news-jdbc\src\main\webapp\ckeditor" />
@@ -585,11 +603,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_news-jdbc" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="59306" />
       </RunnerSettings>
@@ -650,11 +668,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="_news-jdbc" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="59306" />
       </RunnerSettings>
@@ -735,17 +753,22 @@
       <workItem from="1698678767955" duration="3347000" />
       <workItem from="1698738449126" duration="288000" />
       <workItem from="1698827968410" duration="17683000" />
+      <workItem from="1703645068642" duration="1334000" />
+      <workItem from="1703728671922" duration="32095000" />
+      <workItem from="1703775447450" duration="6323000" />
+      <workItem from="1703815390130" duration="2951000" />
+      <workItem from="1703838564617" duration="6324000" />
+      <workItem from="1703865563591" duration="2489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48911000" />
+    <option name="totallyTimeSpent" value="100427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.499002" visible="true" weight="0.2885906" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499002" visible="true" weight="0.31409395" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -756,17 +779,18 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.6085754" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.30705395" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43706778" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32780084" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.21300139" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Application Servers" order="12" weight="0.32885906" />
       <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -777,138 +801,58 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Maven" order="10" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16-sources.jar!/com/mysql/cj/util/StringUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/CategoriesMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21978">
-          <caret line="1273" selection-start-line="1273" selection-end-line="1273" />
+        <state relative-caret-position="247">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/sql/DriverManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/CommentsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3672">
-          <caret line="235" column="29" selection-start-line="235" selection-start-column="29" selection-end-line="235" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/news-jdbc.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/decorators/web.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="17" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/common/web/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="27" column="62" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/common/admin/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/AuthorizationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="71" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/decorators/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="247">
+          <caret line="20" column="69" lean-forward="true" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/FormUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="76">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/home.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/HomeController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CategoriesDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="342">
+          <caret line="23" column="75" selection-start-line="21" selection-start-column="8" selection-end-line="23" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/HttpUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/CommentsModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="35" />
+        <state relative-caret-position="209">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/NewsAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -919,245 +863,391 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/CategoryModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="190">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/RoleModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/UserModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/IUserDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/response/AbtractResponseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
-          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/common/admin/menu.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/TreeNodeModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="51" column="43" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="13" column="55" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICategoryDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/web/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="72" />
+        <state relative-caret-position="95">
+          <caret line="10" column="42" lean-forward="true" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/AbstractModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/PagingModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#964#965#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1057#1058#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
+            <element signature="e#1290#1291#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+            <element signature="e#1387#1388#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/INewsDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/NewsAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/CommentModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/BlogsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="190">
+          <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/CategoryService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/paging/Pageable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#507#508#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CategoryDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/paging/PageRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/GenericDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/AbstractModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/IBlogsDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/model/NewsModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="323">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ckeditor/ckeditor.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICategoriesDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5016">
+        <state relative-caret-position="133">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="10" selection-end-column="55" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/ckeditor/lang/af.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/CategoriesAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="89" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/CommentsAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/CorsFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="23" column="138" selection-start-line="21" selection-start-column="8" selection-end-line="23" selection-end-column="138" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/decorators/admin.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-462">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+        <state relative-caret-position="551">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/NewsService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/filter/AuthorizationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        <state relative-caret-position="380">
+          <caret line="27" column="138" selection-start-line="27" selection-start-column="138" selection-end-line="27" selection-end-column="138" />
           <folding>
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/ICommentsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="89" column="33" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="33" />
+        <state relative-caret-position="209">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/HttpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/api/BlogsAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="130" column="62" selection-start-line="130" selection-start-column="56" selection-end-line="130" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/CommentUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-195">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/IBlogsConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/ICategoriesConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/ICommentsDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/CategoriesConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="18" column="90" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/CommentsConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="25" column="83" selection-start-line="25" selection-start-column="83" selection-end-line="25" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/CommentsDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/CategoriesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/CommentsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/ICommentsConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/BlogsDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/IBlogsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/BlogsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/converter/impl/BlogsConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/EncodeUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/constant/SystemConstant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        <state relative-caret-position="171">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/message.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="14" selection-start-line="2" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/news/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="26" column="67" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/admin/news/edit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <caret line="9" column="76" lean-forward="true" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="39" column="46" lean-forward="true" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/service/impl/NewsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
           <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1731#1732#0" expanded="true" />
+            <element signature="e#1769#1770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/AbstractDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-53">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/dao/impl/NewsDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="60" column="57" selection-start-line="60" selection-start-column="57" selection-end-line="60" selection-end-column="57" />
+        <state relative-caret-position="194">
+          <caret line="64" column="43" lean-forward="true" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/MessageUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/mapper/NewsMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/controller/admin/NewsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="50" column="42" lean-forward="true" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/laptrinhjavaweb/utils/SessionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="292">
+          <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
         </state>
       </provider>
     </entry>
