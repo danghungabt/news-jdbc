@@ -144,7 +144,6 @@ public class BlogsAPI extends HttpServlet {
 
 
         } else {
-
             String page = request.getParameter("page");
 
             PagingModel<BlogsResponseModel> blogsResponseModels = blogsService.findAllClientWithPageable(Integer.parseInt(page));

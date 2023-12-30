@@ -4,6 +4,7 @@ package com.laptrinhjavaweb.controller.admin.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.converter.ICategoriesConverter;
 import com.laptrinhjavaweb.model.CategoriesModel;
+import com.laptrinhjavaweb.model.PagingModel;
 import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
 import com.laptrinhjavaweb.service.ICategoriesService;
 import com.laptrinhjavaweb.utils.HttpUtil;
@@ -78,7 +79,9 @@ public class CategoriesAPI extends HttpServlet {
                 }
             }
         } else {
-            List<CategoriesResponseModel> categoriesResponseModels = categoriesService.findAllClient();
+            String page = request.getParameter("page");
+
+            PagingModel<CategoriesResponseModel> categoriesResponseModels = categoriesService.findAllClientWithPageable(Integer.parseInt(page));
             if (categoriesResponseModels != null) {
                 response.setContentType("application/json");
                 mapper.writeValue(response.getOutputStream(), categoriesResponseModels);

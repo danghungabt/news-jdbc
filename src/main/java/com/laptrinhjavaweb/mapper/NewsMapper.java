@@ -19,8 +19,8 @@ public class NewsMapper implements RowMapper<NewsModel> {
 			newsModel.setShortDescription(rs.getString("shortdescription"));
 			newsModel.setCreatedDate(rs.getTimestamp("createddate"));
 			newsModel.setCreatedBy(rs.getString("createdby"));
-			if (rs.getTimestamp("modìfieddate") != null) {
-				newsModel.setModifiedDate(rs.getTimestamp("modìfieddate"));
+			if (rs.getTimestamp("modifieddate") != null) {
+				newsModel.setModifiedDate(rs.getTimestamp("modifieddate"));
 			}
 			if (rs.getString("modifiedby") != null) {
 				newsModel.setModifiedBy(rs.getString("modifiedby"));

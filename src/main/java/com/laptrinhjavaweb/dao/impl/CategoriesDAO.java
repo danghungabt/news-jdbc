@@ -3,6 +3,8 @@ package com.laptrinhjavaweb.dao.impl;
 import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.mapper.CategoriesMapper;
 import com.laptrinhjavaweb.model.CategoriesModel;
+import com.laptrinhjavaweb.paging.Pageable;
+import com.laptrinhjavaweb.utils.PagingUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
@@ -43,5 +45,12 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
         String sql = "SELECT * FROM categories WHERE slugcategory = ?";
         List<CategoriesModel> categoriesModels = query(sql, new CategoriesMapper(), slugCategory);
         return categoriesModels.isEmpty() ? null : categoriesModels.get(0);
+    }
+
+    @Override
+    public List<CategoriesModel> findAllWithPageable(Pageable pageable) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM categories");
+        sql = PagingUtils.pagingQuery(pageable, sql);
+        return query(sql.toString(), new CategoriesMapper());
     }
 }

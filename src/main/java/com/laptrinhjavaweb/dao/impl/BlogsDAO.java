@@ -6,7 +6,7 @@ import com.laptrinhjavaweb.mapper.CategoriesMapper;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.CategoriesModel;
 import com.laptrinhjavaweb.paging.Pageable;
-import org.apache.commons.lang.StringUtils;
+import com.laptrinhjavaweb.utils.PagingUtils;
 
 import java.util.List;
 
@@ -59,43 +59,25 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
     @Override
     public List<BlogsModel> findAllWithPageable(Pageable pageable) {
         StringBuilder sql = new StringBuilder("SELECT * FROM blogs");
-        /*if (pageable.getSorter() != null && StringUtils.isNotBlank(pageable.getSorter().getSortName())
-                && StringUtils.isNotBlank(pageable.getSorter().getSortBy())) {
-            sql.append(" ORDER BY " + pageable.getSorter().getSortName() + " " + pageable.getSorter().getSortBy());
-        }
-        if (pageable.getOffset() != null && pageable.getLimit() != null) {
-            sql.append(" LIMIT " + pageable.getOffset() + ", " + pageable.getLimit());
-        }*/
-        sql = pagingQuery(pageable, sql);
+        sql = PagingUtils.pagingQuery(pageable, sql);
         return query(sql.toString(), new BlogsMapper());
     }
 
     @Override
     public List<BlogsModel> findByCategoryIdWithPageable(Long categoryId, Pageable pageable) {
         StringBuilder sql = new StringBuilder("SELECT * FROM blogs WHERE categoryid = ?");
-        sql = pagingQuery(pageable, sql);
+        sql = PagingUtils.pagingQuery(pageable, sql);
 
         return query(sql.toString(), new BlogsMapper(), categoryId);
     }
 
-    private StringBuilder pagingQuery(Pageable pageable, StringBuilder sql) {
-        if (pageable.getSorter() != null && StringUtils.isNotBlank(pageable.getSorter().getSortName())
-                && StringUtils.isNotBlank(pageable.getSorter().getSortBy())) {
-            sql.append(" ORDER BY " + pageable.getSorter().getSortName() + " " + pageable.getSorter().getSortBy());
-        }
-        if (pageable.getOffset() != null && pageable.getLimit() != null) {
-            sql.append(" LIMIT " + pageable.getOffset() + ", " + pageable.getLimit());
-        }
-
-        return sql;
-    }
 
 
     @Override
     public List<BlogsModel> findByKeyWithPageable(String key, Pageable pageable) {
         StringBuilder sql = new StringBuilder("SELECT * FROM blogs WHERE title LIKE '%"+ key +
                 "%' OR content LIKE '%" + key + "%'");
-        sql = pagingQuery(pageable, sql);
+        sql = PagingUtils.pagingQuery(pageable, sql);
         return search(sql.toString(), new BlogsMapper());
     }
 

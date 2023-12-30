@@ -10,12 +10,14 @@ import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.paging.Pageable;
 import com.laptrinhjavaweb.service.IBlogsService;
 import com.laptrinhjavaweb.sort.Sorter;
+import com.laptrinhjavaweb.utils.EncodeUtils;
 
 import javax.inject.Inject;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class BlogsService implements IBlogsService {
 
@@ -120,9 +122,7 @@ public class BlogsService implements IBlogsService {
     @Override
     public PagingModel<BlogsResponseModel> findByCategoryIdClientWithPageable(Long categoryId, Integer page) {
         Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
-
         PagingModel<BlogsResponseModel> result = new PagingModel<BlogsResponseModel>();
-
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
         result.setTotalItem(blogsDAO.findByCategoryId(categoryId).size());
@@ -138,17 +138,27 @@ public class BlogsService implements IBlogsService {
     @Override
     public PagingModel<BlogsResponseModel> findByKeyClientWithPageable(String key, Integer page) {
         Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
-
         PagingModel<BlogsResponseModel> result = new PagingModel<BlogsResponseModel>();
-
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
-        result.setTotalItem(blogsDAO.findByKey(key).size());
+
+        List<BlogsResponseModel> allBlogs = blogsDAO.findAll().stream()
+                .map(item -> blogsConverter.convertToBlogsResponseModel(item))
+                .filter(item -> item.getTitle().contains(key) || item.getContent().contains(key))
+                .collect(Collectors.toList());
+
+
+        result.setTotalItem(allBlogs.size());
         result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
 
-        result.setListResult(blogsDAO.findByKeyWithPageable(key, pageable).stream()
-                .map(item -> blogsConverter.convertToBlogsResponseModel(item))
-                .collect(Collectors.toList()));
+        int inclusive = (page - 1) * SystemConstant.PAGE_SIZE;
+        int exclusive = allBlogs.size() > SystemConstant.PAGE_SIZE ?
+                            inclusive + SystemConstant.PAGE_SIZE
+                            : inclusive + allBlogs.size();
+
+        result.setListResult(IntStream.range(inclusive, exclusive)
+                                .mapToObj(index -> allBlogs.get(index))
+                                .collect(Collectors.toList()));
 
         return result;
     }
