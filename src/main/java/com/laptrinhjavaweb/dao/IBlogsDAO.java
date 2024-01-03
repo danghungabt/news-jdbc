@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.dao;
 
+import com.laptrinhjavaweb.model.BlogWithCategoryModel;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.paging.Pageable;
 
@@ -16,4 +17,7 @@ public interface IBlogsDAO extends GenericDAO<BlogsModel> {
     List<BlogsModel> findByCategoryIdWithPageable(Long categoryId, Pageable pageable);
     List<BlogsModel> findByKeyWithPageable(String key, Pageable pageable);
     List<BlogsModel> getRecent();
+
+    List<BlogWithCategoryModel> findAllWithPageablePlus(Pageable pageable);
+    List<BlogWithCategoryModel> findByCategoryIdWithPageablePlus(Long categoryId, Pageable pageable);
 }

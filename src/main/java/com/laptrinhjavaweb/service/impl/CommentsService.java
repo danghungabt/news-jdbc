@@ -5,6 +5,7 @@ import com.laptrinhjavaweb.dao.ICommentsDAO;
 import com.laptrinhjavaweb.model.CommentsModel;
 import com.laptrinhjavaweb.model.TreeNodeModel;
 import com.laptrinhjavaweb.model.response.CommentsResponseModel;
+import com.laptrinhjavaweb.model.response.recent.CommentsRecentResponseModel;
 import com.laptrinhjavaweb.service.ICommentsService;
 import com.laptrinhjavaweb.utils.CommentUtils;
 
@@ -61,9 +62,9 @@ public class CommentsService implements ICommentsService {
     }
 
     @Override
-    public List<CommentsResponseModel> getRecent() {
+    public List<CommentsRecentResponseModel> getRecent() {
         return commentsDAO.getRecent().stream()
-                .map(item -> commentsConverter.convertToCommentsResponseModel(item))
+                .map(item -> commentsConverter.convertToCommentRecent(item))
                 .collect(Collectors.toList());
     }
 }

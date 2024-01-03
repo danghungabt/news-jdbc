@@ -2,10 +2,18 @@ package com.laptrinhjavaweb.service.impl;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.IBlogsConverter;
+import com.laptrinhjavaweb.converter.ICategoriesConverter;
+import com.laptrinhjavaweb.converter.ICommentsConverter;
 import com.laptrinhjavaweb.dao.IBlogsDAO;
+import com.laptrinhjavaweb.dao.ICategoriesDAO;
+import com.laptrinhjavaweb.dao.ICommentsDAO;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.PagingModel;
+import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
 import com.laptrinhjavaweb.model.response.BlogsResponseModel;
+import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
+import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
+import com.laptrinhjavaweb.model.response.recent.BlogsRecentResponseModel;
 import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.paging.Pageable;
 import com.laptrinhjavaweb.service.IBlogsService;
@@ -25,7 +33,17 @@ public class BlogsService implements IBlogsService {
     private IBlogsConverter blogsConverter;
 
     @Inject
+    private ICategoriesConverter categoriesConverter;
+
+    @Inject
     private IBlogsDAO blogsDAO;
+
+    @Inject
+    private ICategoriesDAO categoriesDAO;
+
+    @Inject
+    private ICommentsDAO commentsDAO;
+
 
     @Override
     public BlogsResponseModel insert(BlogsModel blogsModel) {
@@ -104,9 +122,7 @@ public class BlogsService implements IBlogsService {
     public PagingModel<BlogsResponseModel> findAllClientWithPageable(Integer page) {
 
         Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
-
         PagingModel<BlogsResponseModel> result = new PagingModel<BlogsResponseModel>();
-
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
         result.setTotalItem(blogsDAO.findAll().size());
@@ -137,7 +153,6 @@ public class BlogsService implements IBlogsService {
 
     @Override
     public PagingModel<BlogsResponseModel> findByKeyClientWithPageable(String key, Integer page) {
-        Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
         PagingModel<BlogsResponseModel> result = new PagingModel<BlogsResponseModel>();
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
@@ -164,9 +179,123 @@ public class BlogsService implements IBlogsService {
     }
 
     @Override
-    public List<BlogsResponseModel> getRecent() {
+    public List<BlogsRecentResponseModel> getRecent() {
         return blogsDAO.getRecent().stream()
-                .map(item -> blogsConverter.convertToBlogsResponseModel(item))
+                .map(item -> blogsConverter.convertToBlogRecent(item))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public BlogWithCategoryResponseModel findOneBySlugClientPlus(String slugBlog) {
+
+        BlogWithCategoryResponseModel result = new BlogWithCategoryResponseModel();
+
+        BlogsResponseModel blogsResponseModel =
+                blogsConverter.convertToBlogsResponseModel(blogsDAO.findOneBySlug(slugBlog));
+
+        CategoriesResponseModel categoriesResponseModel =
+                categoriesConverter.convertToCategoriesResponseModel(
+                        categoriesDAO.findOne(blogsResponseModel.getCategoryId()));
+
+        result.setTotalComment(commentsDAO.getTotalItemByBlogId(blogsResponseModel.getId()));
+
+        result.setBlogsResponseModel(blogsResponseModel);
+        result.setCategoriesResponseModel(categoriesResponseModel);
+
+        return result;
+    }
+
+    @Override
+    public BlogWithCategoryResponseModel findOneClientPlus(Long id) {
+
+        BlogWithCategoryResponseModel result = new BlogWithCategoryResponseModel();
+
+        BlogsResponseModel blogsResponseModel =
+                blogsConverter.convertToBlogsResponseModel(blogsDAO.findOne(id));
+
+        CategoriesResponseModel categoriesResponseModel =
+                categoriesConverter.convertToCategoriesResponseModel(
+                        categoriesDAO.findOne(blogsResponseModel.getCategoryId()));
+
+        result.setTotalComment(commentsDAO.getTotalItemByBlogId(blogsResponseModel.getId()));
+
+        result.setBlogsResponseModel(blogsResponseModel);
+        result.setCategoriesResponseModel(categoriesResponseModel);
+
+        return result;
+    }
+
+    @Override
+    public PagingModel<MiniBlogWithCategoryResponseModel> findAllClientWithPageablePlus(Integer page) {
+        Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
+        PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
+        result.setPage(page);
+        result.setPageSize(SystemConstant.PAGE_SIZE);
+        result.setTotalItem(blogsDAO.findAll().size());
+        result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
+
+        result.setListResult(blogsDAO.findAllWithPageablePlus(pageable).stream()
+                .map(item -> blogsConverter.convertToMiniBlogWithCategoryModel(item))
+                .collect(Collectors.toList()));
+
+        return result;
+    }
+
+    @Override
+    public PagingModel<MiniBlogWithCategoryResponseModel> findByCategoryIdClientWithPageablePlus(Long categoryId, Integer page) {
+        Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
+        PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
+        result.setPage(page);
+        result.setPageSize(SystemConstant.PAGE_SIZE);
+        result.setTotalItem(blogsDAO.findByCategoryId(categoryId).size());
+        result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
+
+        result.setListResult(blogsDAO.findByCategoryIdWithPageablePlus(categoryId, pageable).stream()
+                .map(item -> blogsConverter.convertToMiniBlogWithCategoryModel(item))
+                .collect(Collectors.toList()));
+
+        return result;
+    }
+
+    @Override
+    public PagingModel<MiniBlogWithCategoryResponseModel> findByKeyClientWithPageablePlus(String key, Integer page) {
+        PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
+        result.setPage(page);
+        result.setPageSize(SystemConstant.PAGE_SIZE);
+
+        List<BlogsResponseModel> allBlogs = blogsDAO.findAll().stream()
+                .map(item -> blogsConverter.convertToBlogsResponseModel(item))
+                .filter(item -> item.getTitle().contains(key) || item.getContent().contains(key))
+                .collect(Collectors.toList());
+
+
+        result.setTotalItem(allBlogs.size());
+        result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
+
+        int inclusive = (page - 1) * SystemConstant.PAGE_SIZE;
+        int exclusive = allBlogs.size() > SystemConstant.PAGE_SIZE ?
+                inclusive + SystemConstant.PAGE_SIZE
+                : inclusive + allBlogs.size();
+
+        List<MiniBlogWithCategoryResponseModel> blogWithCategoryResponseModels = new ArrayList<>();
+
+        for(BlogsResponseModel item: allBlogs){
+            MiniBlogWithCategoryResponseModel blogWithCategoryResponseModel = new MiniBlogWithCategoryResponseModel();
+            blogWithCategoryResponseModel.setBlogsResponseModel(
+                    blogsConverter.convertToMiniBlogsResponseModel(item));
+            blogWithCategoryResponseModel.setCategoriesResponseModel(
+                    categoriesConverter.convertToCategoriesResponseModel(
+                            categoriesDAO.findOne(item.getCategoryId()))
+            );
+            blogWithCategoryResponseModel.setTotalComment(
+                    commentsDAO.getTotalItemByBlogId(item.getId()));
+            blogWithCategoryResponseModels.add(blogWithCategoryResponseModel);
+        }
+
+        result.setListResult(IntStream.range(inclusive, exclusive)
+                .mapToObj(index -> blogWithCategoryResponseModels.get(index))
+                .collect(Collectors.toList()));
+
+        return result;
     }
 }

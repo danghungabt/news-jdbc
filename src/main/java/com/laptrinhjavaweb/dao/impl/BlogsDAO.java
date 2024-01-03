@@ -1,8 +1,10 @@
 package com.laptrinhjavaweb.dao.impl;
 
 import com.laptrinhjavaweb.dao.IBlogsDAO;
+import com.laptrinhjavaweb.mapper.BlogWithCategoryMapper;
 import com.laptrinhjavaweb.mapper.BlogsMapper;
 import com.laptrinhjavaweb.mapper.CategoriesMapper;
+import com.laptrinhjavaweb.model.BlogWithCategoryModel;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.CategoriesModel;
 import com.laptrinhjavaweb.paging.Pageable;
@@ -89,5 +91,20 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
         sql.append(" LIMIT 0,5");
 
         return query(sql.toString(), new BlogsMapper());
+    }
+
+    @Override
+    public List<BlogWithCategoryModel> findAllWithPageablePlus(Pageable pageable) {
+        StringBuilder sql = new StringBuilder("select * from blogs b inner join categories c on b.categoryid = c.id");
+        sql = PagingUtils.pagingQuery(pageable, sql);
+        return query(sql.toString(), new BlogWithCategoryMapper());
+    }
+
+    @Override
+    public List<BlogWithCategoryModel> findByCategoryIdWithPageablePlus(Long categoryId, Pageable pageable) {
+        StringBuilder sql = new StringBuilder("select * from blogs b inner join categories c on b.categoryid = c.id WHERE b.categoryid = ?");
+        sql = PagingUtils.pagingQuery(pageable, sql);
+
+        return query(sql.toString(), new BlogWithCategoryMapper(), categoryId);
     }
 }

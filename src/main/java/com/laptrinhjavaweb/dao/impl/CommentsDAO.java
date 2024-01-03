@@ -47,4 +47,10 @@ public class CommentsDAO extends AbstractDAO<CommentsModel> implements IComments
 
         return query(sql.toString(), new CommentsMapper());
     }
+
+    @Override
+    public Integer getTotalItemByBlogId(Long id) {
+        String sql = "SELECT count(*) FROM comments where blogid = " + id;
+        return count(sql);
+    }
 }

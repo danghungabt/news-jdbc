@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.model.CommentsModel;
 import com.laptrinhjavaweb.model.TreeNodeModel;
 import com.laptrinhjavaweb.model.response.CommentsResponseModel;
+import com.laptrinhjavaweb.model.response.recent.CommentsRecentResponseModel;
 import com.laptrinhjavaweb.service.ICommentsService;
 import com.laptrinhjavaweb.utils.HttpUtil;
 
@@ -59,7 +60,7 @@ public class CommentsAPI extends HttpServlet {
         } else if (pathInfo != null && pathInfo.equals("/recent")) {
 
             // Xử lý API findOne với id
-            List<CommentsResponseModel> comments = commentsService.getRecent();
+            List<CommentsRecentResponseModel> comments = commentsService.getRecent();
             if (comments != null) {
                 // Gửi response với dữ liệu của category tương ứng
                 response.setContentType("application/json");

@@ -79,9 +79,8 @@ public class CategoriesAPI extends HttpServlet {
                 }
             }
         } else {
-            String page = request.getParameter("page");
-
-            PagingModel<CategoriesResponseModel> categoriesResponseModels = categoriesService.findAllClientWithPageable(Integer.parseInt(page));
+//            PagingModel<CategoriesResponseModel> categoriesResponseModels = categoriesService.findAllClientWithPageable(Integer.parseInt(page));
+            List<CategoriesResponseModel> categoriesResponseModels = categoriesService.findAllClient();
             if (categoriesResponseModels != null) {
                 response.setContentType("application/json");
                 mapper.writeValue(response.getOutputStream(), categoriesResponseModels);

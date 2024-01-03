@@ -3,7 +3,10 @@ package com.laptrinhjavaweb.controller.admin.api;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.PagingModel;
+import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
 import com.laptrinhjavaweb.model.response.BlogsResponseModel;
+import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
+import com.laptrinhjavaweb.model.response.recent.BlogsRecentResponseModel;
 import com.laptrinhjavaweb.service.IBlogsService;
 import com.laptrinhjavaweb.utils.HttpUtil;
 
@@ -50,7 +53,7 @@ public class BlogsAPI extends HttpServlet {
                 String id = pathParts[2];
                 if (id != null) {
                     // Xử lý API findOne với id
-                    BlogsResponseModel blog = blogsService.findOneClient(Long.parseLong(id));
+                    BlogWithCategoryResponseModel blog = blogsService.findOneClientPlus(Long.parseLong(id));
                     if (blog != null) {
                         // Gửi response với dữ liệu của category tương ứng
                         response.setContentType("application/json");
@@ -70,7 +73,7 @@ public class BlogsAPI extends HttpServlet {
                 String slug = pathParts[2];
                 if (slug != null) {
                     // Xử lý API findOne với id
-                    BlogsResponseModel blog = blogsService.findOneBySlugClient(slug);
+                    BlogWithCategoryResponseModel blog = blogsService.findOneBySlugClientPlus(slug);
                     if (blog != null) {
                         // Gửi response với dữ liệu của category tương ứng
                         response.setContentType("application/json");
@@ -92,8 +95,10 @@ public class BlogsAPI extends HttpServlet {
                 if (categoryId != null) {
                     // Xử lý API findOne với id
 //                    List<BlogsResponseModel> blogs = blogsService.findByCategoryIdClient(Long.parseLong(categoryId));
-                    PagingModel<BlogsResponseModel> blogs = blogsService.findByCategoryIdClientWithPageable(Long.parseLong(categoryId),
-                                                                                                    Integer.parseInt(page));
+                    /*PagingModel<BlogsResponseModel> blogs = blogsService.findByCategoryIdClientWithPageable(Long.parseLong(categoryId),
+                                                                                                    Integer.parseInt(page));*/
+                    PagingModel<MiniBlogWithCategoryResponseModel> blogs = blogsService.findByCategoryIdClientWithPageablePlus(Long.parseLong(categoryId),
+                            Integer.parseInt(page));
                     if (blogs != null) {
                         // Gửi response với dữ liệu của category tương ứng
                         response.setContentType("application/json");
@@ -114,7 +119,8 @@ public class BlogsAPI extends HttpServlet {
             if (key != null) {
                 // Xử lý API findOne với id
 //                List<BlogsResponseModel> blogs = blogsService.findByKeyClient(key);
-                PagingModel<BlogsResponseModel> blogs = blogsService.findByKeyClientWithPageable(key, Integer.parseInt(page));
+//                PagingModel<BlogsResponseModel> blogs = blogsService.findByKeyClientWithPageable(key, Integer.parseInt(page));
+                PagingModel<MiniBlogWithCategoryResponseModel> blogs = blogsService.findByKeyClientWithPageablePlus(key, Integer.parseInt(page));
                 if (blogs != null) {
                     // Gửi response với dữ liệu của category tương ứng
                     response.setContentType("application/json");
@@ -132,7 +138,7 @@ public class BlogsAPI extends HttpServlet {
 
                 // Xử lý API findOne với id
 //                List<BlogsResponseModel> blogs = blogsService.findByKeyClient(key);
-                List<BlogsResponseModel> blogs = blogsService.getRecent();
+                List<BlogsRecentResponseModel> blogs = blogsService.getRecent();
                 if (blogs != null) {
                     // Gửi response với dữ liệu của category tương ứng
                     response.setContentType("application/json");
@@ -146,7 +152,10 @@ public class BlogsAPI extends HttpServlet {
         } else {
             String page = request.getParameter("page");
 
-            PagingModel<BlogsResponseModel> blogsResponseModels = blogsService.findAllClientWithPageable(Integer.parseInt(page));
+//            PagingModel<BlogsResponseModel> blogsResponseModels = blogsService.findAllClientWithPageable(Integer.parseInt(page));
+//            PagingModel<BlogWithCategoryResponseModel> blogsResponseModels = blogsService.findAllClientWithPageablePlus(Integer.parseInt(page));
+            PagingModel<MiniBlogWithCategoryResponseModel> blogsResponseModels = blogsService.findAllClientWithPageablePlus(Integer.parseInt(page));
+
             if (blogsResponseModels != null) {
                 response.setContentType("application/json");
                 mapper.writeValue(response.getOutputStream(), blogsResponseModels);
