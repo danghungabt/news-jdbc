@@ -107,4 +107,16 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
 
         return query(sql.toString(), new BlogWithCategoryMapper(), categoryId);
     }
+
+    @Override
+    public int getTotalItem() {
+        String sql = "SELECT count(*) FROM blogs";
+        return count(sql);
+    }
+
+    @Override
+    public int getTotalItemByCategoryId(Long categoryId) {
+        String sql = "SELECT count(*) FROM blogs WHERE categoryid = ?";
+        return count(sql, categoryId);
+    }
 }

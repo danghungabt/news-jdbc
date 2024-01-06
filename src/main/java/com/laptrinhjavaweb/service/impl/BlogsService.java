@@ -7,8 +7,7 @@ import com.laptrinhjavaweb.converter.ICommentsConverter;
 import com.laptrinhjavaweb.dao.IBlogsDAO;
 import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.dao.ICommentsDAO;
-import com.laptrinhjavaweb.model.BlogsModel;
-import com.laptrinhjavaweb.model.PagingModel;
+import com.laptrinhjavaweb.model.*;
 import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
 import com.laptrinhjavaweb.model.response.BlogsResponseModel;
 import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
@@ -43,7 +42,6 @@ public class BlogsService implements IBlogsService {
 
     @Inject
     private ICommentsDAO commentsDAO;
-
 
     @Override
     public BlogsResponseModel insert(BlogsModel blogsModel) {
@@ -180,8 +178,19 @@ public class BlogsService implements IBlogsService {
 
     @Override
     public List<BlogsRecentResponseModel> getRecent() {
+
+
+        List<CategoriesModel> categoriesModels = categoriesDAO.findAll();
+
         return blogsDAO.getRecent().stream()
-                .map(item -> blogsConverter.convertToBlogRecent(item))
+                .map(item -> {
+                    for(CategoriesModel categoriesModel: categoriesModels){
+                        if(categoriesModel.getId() == item.getCategoryId()) {
+                            return blogsConverter.convertToBlogRecent(item, categoriesModel);
+                        }
+                    }
+                    return null;
+                })
                 .collect(Collectors.toList());
     }
 
@@ -231,11 +240,22 @@ public class BlogsService implements IBlogsService {
         PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
-        result.setTotalItem(blogsDAO.findAll().size());
+        result.setTotalItem(blogsDAO.getTotalItem());
         result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
 
+        List<CountCommentModel> countCommentModels = commentsDAO.getCountComment();
+
         result.setListResult(blogsDAO.findAllWithPageablePlus(pageable).stream()
-                .map(item -> blogsConverter.convertToMiniBlogWithCategoryModel(item))
+                .map(item -> {
+                    for (CountCommentModel countCommentModel : countCommentModels){
+                        if(countCommentModel.getBlogId() == item.getBlogsModel().getId()){
+                            return blogsConverter.convertToMiniBlogWithCategoryModel(item,
+                                    countCommentModel.getCount());
+                        }
+                    }
+                    return blogsConverter.convertToMiniBlogWithCategoryModel(item,
+                            0);
+                })
                 .collect(Collectors.toList()));
 
         return result;
@@ -247,11 +267,22 @@ public class BlogsService implements IBlogsService {
         PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
-        result.setTotalItem(blogsDAO.findByCategoryId(categoryId).size());
+        result.setTotalItem(blogsDAO.getTotalItemByCategoryId(categoryId));
         result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
 
+        List<CountCommentModel> countCommentModels = commentsDAO.getCountComment();
+
         result.setListResult(blogsDAO.findByCategoryIdWithPageablePlus(categoryId, pageable).stream()
-                .map(item -> blogsConverter.convertToMiniBlogWithCategoryModel(item))
+                .map(item -> {
+                    for (CountCommentModel countCommentModel : countCommentModels){
+                        if(countCommentModel.getBlogId() == item.getBlogsModel().getId()){
+                            return blogsConverter.convertToMiniBlogWithCategoryModel(item,
+                                    countCommentModel.getCount());
+                        }
+                    }
+                    return blogsConverter.convertToMiniBlogWithCategoryModel(item,
+                            0);
+                })
                 .collect(Collectors.toList()));
 
         return result;
@@ -259,6 +290,8 @@ public class BlogsService implements IBlogsService {
 
     @Override
     public PagingModel<MiniBlogWithCategoryResponseModel> findByKeyClientWithPageablePlus(String key, Integer page) {
+        List<CountCommentModel> countCommentModels = commentsDAO.getCountComment();
+
         PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
         result.setPage(page);
         result.setPageSize(SystemConstant.PAGE_SIZE);
@@ -287,8 +320,17 @@ public class BlogsService implements IBlogsService {
                     categoriesConverter.convertToCategoriesResponseModel(
                             categoriesDAO.findOne(item.getCategoryId()))
             );
-            blogWithCategoryResponseModel.setTotalComment(
-                    commentsDAO.getTotalItemByBlogId(item.getId()));
+
+            for(CountCommentModel countCommentModel: countCommentModels){
+                if(countCommentModel.getBlogId() == item.getId()){
+                    blogWithCategoryResponseModel.setTotalComment(countCommentModel.getCount());
+                }
+            }
+
+            if(blogWithCategoryResponseModel.getTotalComment() == null){
+                blogWithCategoryResponseModel.setTotalComment(0);
+            }
+
             blogWithCategoryResponseModels.add(blogWithCategoryResponseModel);
         }
 

@@ -2,7 +2,9 @@ package com.laptrinhjavaweb.dao.impl;
 
 import com.laptrinhjavaweb.dao.ICommentsDAO;
 import com.laptrinhjavaweb.mapper.CommentsMapper;
+import com.laptrinhjavaweb.mapper.CountCommentMapper;
 import com.laptrinhjavaweb.model.CommentsModel;
+import com.laptrinhjavaweb.model.CountCommentModel;
 
 import java.util.List;
 
@@ -52,5 +54,11 @@ public class CommentsDAO extends AbstractDAO<CommentsModel> implements IComments
     public Integer getTotalItemByBlogId(Long id) {
         String sql = "SELECT count(*) FROM comments where blogid = " + id;
         return count(sql);
+    }
+
+    @Override
+    public List<CountCommentModel> getCountComment() {
+        String sql = "SELECT blogid, count(*) as count FROM comments group by blogid";
+        return query(sql, new CountCommentMapper());
     }
 }

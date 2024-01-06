@@ -5,6 +5,7 @@ import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.dao.ICommentsDAO;
 import com.laptrinhjavaweb.model.BlogWithCategoryModel;
 import com.laptrinhjavaweb.model.BlogsModel;
+import com.laptrinhjavaweb.model.CategoriesModel;
 import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
 import com.laptrinhjavaweb.model.response.BlogsResponseModel;
 import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
@@ -27,9 +28,6 @@ public class BlogsConverter implements IBlogsConverter {
 
     @Inject
     private ICommentsDAO commentsDAO;
-
-    @Inject
-    private ICategoriesDAO categoriesDAO;
 
     @Override
     public BlogsResponseModel convertToBlogsResponseModel(BlogsModel blogsModel) {
@@ -86,26 +84,25 @@ public class BlogsConverter implements IBlogsConverter {
     }
 
     @Override
-    public MiniBlogWithCategoryResponseModel convertToMiniBlogWithCategoryModel(BlogWithCategoryModel blogWithCategoryModel) {
+    public MiniBlogWithCategoryResponseModel convertToMiniBlogWithCategoryModel(BlogWithCategoryModel blogWithCategoryModel
+                                                        , Integer countComment) {
         MiniBlogWithCategoryResponseModel response = new MiniBlogWithCategoryResponseModel();
 
         response.setBlogsResponseModel(convertToMiniBlogsResponseModel(blogWithCategoryModel.getBlogsModel()));
         response.setCategoriesResponseModel(categoriesConverter.convertToCategoriesResponseModel(
                 blogWithCategoryModel.getCategoriesModel()));
 
-        response.setTotalComment(commentsDAO.getTotalItemByBlogId(blogWithCategoryModel.getBlogsModel().getId()));
+        response.setTotalComment(countComment);
 
         return response;
     }
 
     @Override
-    public BlogsRecentResponseModel convertToBlogRecent(BlogsModel blogsModel) {
+    public BlogsRecentResponseModel convertToBlogRecent(BlogsModel blogsModel, CategoriesModel categoriesModel) {
         BlogsRecentResponseModel result = modelMapper.map(blogsModel, BlogsRecentResponseModel.class);
         result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
 
-        result.setSlugCategory(
-                categoriesDAO.findOne(blogsModel.getCategoryId())
-                        .getSlugCategory());
+        result.setSlugCategory(categoriesModel.getSlugCategory());
         return result;
     }
 }

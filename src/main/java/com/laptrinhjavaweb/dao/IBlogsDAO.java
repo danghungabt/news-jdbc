@@ -20,4 +20,8 @@ public interface IBlogsDAO extends GenericDAO<BlogsModel> {
 
     List<BlogWithCategoryModel> findAllWithPageablePlus(Pageable pageable);
     List<BlogWithCategoryModel> findByCategoryIdWithPageablePlus(Long categoryId, Pageable pageable);
+
+    int getTotalItem();
+    int getTotalItemByCategoryId(Long categoryId);
+
 }
