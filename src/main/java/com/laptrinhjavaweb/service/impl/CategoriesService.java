@@ -1,10 +1,12 @@
 package com.laptrinhjavaweb.service.impl;
 
+import com.laptrinhjavaweb.builder.CategoriesBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.ICategoriesConverter;
 import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.model.CategoriesModel;
 import com.laptrinhjavaweb.model.PagingModel;
+import com.laptrinhjavaweb.model.request.CategoriesSearchRequestModel;
 import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
 import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.paging.Pageable;
@@ -32,8 +34,35 @@ public class CategoriesService implements ICategoriesService {
     }
 
     @Override
-    public List<CategoriesModel> findAll() {
-        return categoriesDAO.findAll();
+    public CategoriesResponseModel update(CategoriesModel categoriesModel) {
+        CategoriesModel oldCategories = categoriesDAO.findOne(categoriesModel.getId());
+        categoriesModel.setCreatedBy(oldCategories.getCreatedBy());
+        categoriesModel.setCreatedDate(oldCategories.getCreatedDate());
+        categoriesModel.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+        categoriesDAO.update(categoriesModel);
+        return categoriesConverter.convertToCategoriesResponseModel(categoriesDAO.findOne(categoriesModel.getId()));
+    }
+
+    @Override
+    public List<CategoriesModel> findAll(Pageable pageable) {
+        return categoriesDAO.findAll(pageable);
+    }
+
+    @Override
+    public List<CategoriesModel> findByCondition(Pageable pageable, CategoriesSearchRequestModel requestModel) {
+
+        CategoriesBuilder builder = convertRequestModelToBuilder(requestModel);
+
+        return categoriesDAO.findByCondition(pageable, builder);
+    }
+
+    private CategoriesBuilder convertRequestModelToBuilder(CategoriesSearchRequestModel requestModel) {
+        CategoriesBuilder result = new CategoriesBuilder.Builder()
+                .setCategory(requestModel.getCategory())
+                .setCreatedBy(requestModel.getCreatedBy())
+                .build();
+
+        return result;
     }
 
     @Override
@@ -81,4 +110,25 @@ public class CategoriesService implements ICategoriesService {
 
         return result;
     }
+
+    @Override
+    public int getTotalItem() {
+        return categoriesDAO.getTotalItem();
+    }
+
+    @Override
+    public int getTotalItemByCondition(CategoriesSearchRequestModel requestModel){
+
+        CategoriesBuilder builder = convertRequestModelToBuilder(requestModel);
+
+        return categoriesDAO.getTotalItemByCondition(builder);
+    }
+
+    @Override
+    public void delete(long[] ids) {
+        for (long id : ids) {
+            categoriesDAO.delete(id);
+        }
+    }
+
 }

@@ -28,16 +28,16 @@ public class CommentsConverter implements ICommentsConverter {
         if(result.getParentId() == 0){
             result.setParentId(null);
         }
-        result.setName(StringEscapeUtils.unescapeJava(commentsModel.getName()));
-        result.setContent(StringEscapeUtils.unescapeJava(commentsModel.getContent()));
+//        result.setName(StringEscapeUtils.unescapeJava(commentsModel.getName()));
+//        result.setContent(StringEscapeUtils.unescapeJava(commentsModel.getContent()));
         return result;
     }
 
     @Override
     public CommentsModel convertToCommentsModel(CommentsModel commentsModel) {
         CommentsModel result = commentsModel;
-        result.setName(EncodeUtils.encoding(commentsModel.getName()));
-        result.setContent(EncodeUtils.encoding(commentsModel.getContent()));
+//        result.setName(EncodeUtils.encoding(commentsModel.getName()));
+//        result.setContent(EncodeUtils.encoding(commentsModel.getContent()));
         return result;
     }
 
@@ -46,8 +46,8 @@ public class CommentsConverter implements ICommentsConverter {
                                                               CategoriesModel categoriesModel) {
         CommentsRecentResponseModel result = modelMapper.map(
                 commentsModel, CommentsRecentResponseModel.class);
-        result.setName(StringEscapeUtils.unescapeJava(commentsModel.getName()));
-        result.setBlog(blogsConverter.convertToBlogRecent(blogsModel, categoriesModel));
+//        result.setName(StringEscapeUtils.unescapeJava(commentsModel.getName()));
+//        result.setBlog(blogsConverter.convertToBlogRecent(blogsModel, categoriesModel));
         return result;
     }
 }

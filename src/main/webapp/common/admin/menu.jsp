@@ -5,7 +5,7 @@
     <script type="text/javascript">
         try{ace.settings.loadState('sidebar')}catch(e){}
     </script>
-    <div class="sidebar-shortcuts">
+    <%--<div class="sidebar-shortcuts">
         <div class="sidebar-shortcuts-large">
             <button class="btn btn-success">
                 <i class="ace-icon fa fa-signal"></i>
@@ -32,13 +32,12 @@
 
             <span class="btn btn-danger"></span>
         </div>
-    </div>
+    </div>--%>
     <ul class="nav nav-list">
         <li >
-            <a href="#" class="dropdown-toggle">
+            <a href="#" class="dropdown-toggle" style="display: flex; height: fit-content">
                 <i class="menu-icon fa fa-list"></i>
-                <span class="menu-text"></span>
-                Quản lý bài viết
+                <span class="menu-text">Quản lý bài viết</span>
                 <b class="arrow fa fa-angle-down"></b>
             </a>
             <b class="arrow"></b>
@@ -54,6 +53,30 @@
                     <a href='${listURL}'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         DS bài viết
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+        <li >
+            <a href="#" class="dropdown-toggle" style="display: flex; height: fit-content">
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text">Quản lý danh mục bài viết</span>
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+            <b class="arrow"></b>
+            <ul class="submenu">
+                <li>
+                    <c:url var="listURL" value="/admin-categories">
+                        <c:param name="page" value="1"/>
+                        <c:param name="maxPageItem" value="2"/>
+                        <c:param name="sortName" value="category"/>
+                        <c:param name="sortBy" value="desc"/>
+                        <c:param name="type" value="list"/>
+                    </c:url>
+                    <a href='${listURL}'>
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        DS danh mục bài viết
                     </a>
                     <b class="arrow"></b>
                 </li>

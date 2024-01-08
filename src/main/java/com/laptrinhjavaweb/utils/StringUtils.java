@@ -14,4 +14,11 @@ public class StringUtils {
 
         return oldString.substring(0, index);
     }
+
+    public static boolean isNullOrEmpty(String str) {
+        if (str != null && str != "") {
+            return false;
+        }
+        return true;
+    }
 }

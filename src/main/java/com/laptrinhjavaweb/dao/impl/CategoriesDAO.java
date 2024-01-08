@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.dao.impl;
 
+import com.laptrinhjavaweb.builder.CategoriesBuilder;
 import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.mapper.CategoriesMapper;
 import com.laptrinhjavaweb.model.CategoriesModel;
@@ -20,6 +21,16 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
     }
 
     @Override
+    public void update(CategoriesModel categoriesModel) {
+        StringBuilder sql = new StringBuilder("UPDATE categories SET category = ?, slugcategory = ?,");
+        sql.append(" createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
+        update(sql.toString(), categoriesModel.getCategory(), categoriesModel.getSlugCategory(),
+                categoriesModel.getCreatedDate(), categoriesModel.getCreatedBy(),
+                categoriesModel.getModifiedDate(), categoriesModel.getModifiedBy(),
+                categoriesModel.getId());
+    }
+
+    @Override
     public CategoriesModel findOne(Long id) {
         String sql = "SELECT * FROM categories WHERE id = ?";
         List<CategoriesModel> categoriesModels = query(sql, new CategoriesMapper(), id);
@@ -27,15 +38,16 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
     }
 
     @Override
+    public List<CategoriesModel> findAll(Pageable pageable) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM categories");
+        sql = PagingUtils.pagingQuery(pageable, sql);
+
+        return query(sql.toString(), new CategoriesMapper());
+    }
+
+    @Override
     public List<CategoriesModel> findAll() {
         StringBuilder sql = new StringBuilder("SELECT * FROM categories");
-        /*if (pageable.getSorter() != null && StringUtils.isNotBlank(pageable.getSorter().getSortName())
-                && StringUtils.isNotBlank(pageable.getSorter().getSortBy())) {
-            sql.append(" ORDER BY " + pageable.getSorter().getSortName() + " " + pageable.getSorter().getSortBy());
-        }
-        if (pageable.getOffset() != null && pageable.getLimit() != null) {
-            sql.append(" LIMIT " + pageable.getOffset() + ", " + pageable.getLimit());
-        }*/
 
         return query(sql.toString(), new CategoriesMapper());
     }
@@ -52,5 +64,46 @@ public class CategoriesDAO extends AbstractDAO<CategoriesModel> implements ICate
         StringBuilder sql = new StringBuilder("SELECT * FROM categories");
         sql = PagingUtils.pagingQuery(pageable, sql);
         return query(sql.toString(), new CategoriesMapper());
+    }
+
+    @Override
+    public int getTotalItem() {
+        String sql = "SELECT count(*) FROM categories";
+        return count(sql);
+    }
+
+    @Override
+    public List<CategoriesModel> findByCondition(Pageable pageable, CategoriesBuilder categoriesBuilder){
+        StringBuilder sql = new StringBuilder("SELECT * FROM categories WHERE 1=1");
+        sql = buildQueryCommon(sql, categoriesBuilder);
+        sql = PagingUtils.pagingQuery(pageable, sql);
+
+        return query(sql.toString(), new CategoriesMapper(), categoriesBuilder.getCreatedBy());
+    }
+
+
+    @Override
+    public int getTotalItemByCondition(CategoriesBuilder categoriesBuilder) {
+        StringBuilder sql = new StringBuilder("SELECT count(*) FROM categories WHERE 1=1");
+        sql = buildQueryCommon(sql, categoriesBuilder);
+        return count(sql.toString(), categoriesBuilder.getCreatedBy());
+    }
+
+    @Override
+    public void delete(long id) {
+        String sql = "DELETE FROM categories WHERE id = ?";
+        update(sql, id);
+    }
+
+    private StringBuilder buildQueryCommon(StringBuilder sql, CategoriesBuilder categoriesBuilder) {
+        if(categoriesBuilder.getCategory()!= null &&
+                StringUtils.isNotBlank(categoriesBuilder.getCategory())) {
+            sql.append(" AND category LIKE '%"+categoriesBuilder.getCategory()+"%'");
+        }
+        if(categoriesBuilder.getCreatedBy() != null &&
+                StringUtils.isNotBlank(categoriesBuilder.getCreatedBy())) {
+            sql.append(" AND createdby = ?");
+        }
+        return sql;
     }
 }

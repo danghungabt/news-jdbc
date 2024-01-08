@@ -19,4 +19,10 @@ public class UserDAO extends AbstractDAO<UserDAO> implements IUserDAO {
 		return user.isEmpty() ? null : user.get(0);
 	}
 
+	@Override
+	public List<UserModel> findByStatus(Integer status) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM user AS u WHERE status = ?");
+		return query(sql.toString(), new UserMapper(), status);
+	}
+
 }

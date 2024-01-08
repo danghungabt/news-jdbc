@@ -32,8 +32,8 @@ public class BlogsConverter implements IBlogsConverter {
     @Override
     public BlogsResponseModel convertToBlogsResponseModel(BlogsModel blogsModel) {
         BlogsResponseModel result = modelMapper.map(blogsModel, BlogsResponseModel.class);
-        result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
-        result.setContent(StringEscapeUtils.unescapeJava(blogsModel.getContent()));
+//        result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
+//        result.setContent(StringEscapeUtils.unescapeJava(blogsModel.getContent()));
         return result;
     }
 
@@ -41,8 +41,8 @@ public class BlogsConverter implements IBlogsConverter {
     public BlogsModel convertToBlogsModel(BlogsModel blogsModel) {
         BlogsModel result = blogsModel;
 
-        result.setTitle(EncodeUtils.encoding(blogsModel.getTitle()));
-        result.setContent(EncodeUtils.encoding(blogsModel.getContent()));
+//        result.setTitle(EncodeUtils.encoding(blogsModel.getTitle()));
+//        result.setContent(EncodeUtils.encoding(blogsModel.getContent()));
 
         return result;
     }
@@ -63,10 +63,9 @@ public class BlogsConverter implements IBlogsConverter {
     @Override
     public MiniBlogsResponseModel convertToMiniBlogsResponseModel(BlogsModel blogsModel) {
         MiniBlogsResponseModel result = modelMapper.map(blogsModel, MiniBlogsResponseModel.class);
-        result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
+//        result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
 
-        result.setContent(StringUtils.customSubstring(
-                StringEscapeUtils.unescapeJava(blogsModel.getContent()),
+        result.setContent(StringUtils.customSubstring(blogsModel.getContent(),
                 100));
         return result;
     }
@@ -74,10 +73,9 @@ public class BlogsConverter implements IBlogsConverter {
     @Override
     public MiniBlogsResponseModel convertToMiniBlogsResponseModel(BlogsResponseModel blogsResponseModel) {
         MiniBlogsResponseModel result = modelMapper.map(blogsResponseModel, MiniBlogsResponseModel.class);
-        result.setTitle(StringEscapeUtils.unescapeJava(blogsResponseModel.getTitle()));
+//        result.setTitle(StringEscapeUtils.unescapeJava(blogsResponseModel.getTitle()));
 
-        result.setContent(StringUtils.customSubstring(
-                StringEscapeUtils.unescapeJava(blogsResponseModel.getContent()),
+        result.setContent(StringUtils.customSubstring(blogsResponseModel.getContent(),
                 100));
 
         return result;
@@ -100,7 +98,7 @@ public class BlogsConverter implements IBlogsConverter {
     @Override
     public BlogsRecentResponseModel convertToBlogRecent(BlogsModel blogsModel, CategoriesModel categoriesModel) {
         BlogsRecentResponseModel result = modelMapper.map(blogsModel, BlogsRecentResponseModel.class);
-        result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
+//        result.setTitle(StringEscapeUtils.unescapeJava(blogsModel.getTitle()));
 
         result.setSlugCategory(categoriesModel.getSlugCategory());
         return result;

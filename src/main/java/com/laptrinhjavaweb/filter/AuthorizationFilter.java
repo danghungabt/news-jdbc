@@ -29,7 +29,7 @@ public class AuthorizationFilter implements Filter {
 
         String url = request.getRequestURI();
         if(url.startsWith("/admin")){
-            UserModel model = (UserModel) SessionUtils.getInstance().getValue(request,"USERMODEL");
+            UserModel model = (UserModel) SessionUtils.getInstance().getValue(request,SystemConstant.USER_KEY_SESSION);
             if(model != null){
                 if(model.getRole().getCode().equals(SystemConstant.ADMIN)){
                     filterChain.doFilter(servletRequest,servletResponse);

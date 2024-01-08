@@ -16,14 +16,14 @@ public class CategoriesConverter implements ICategoriesConverter {
     @Override
     public CategoriesResponseModel convertToCategoriesResponseModel(CategoriesModel categoriesModel){
         CategoriesResponseModel result = modelMapper.map(categoriesModel, CategoriesResponseModel.class);
-        result.setCategory(StringEscapeUtils.unescapeJava(categoriesModel.getCategory()));
+//        result.setCategory(StringEscapeUtils.unescapeJava(categoriesModel.getCategory()));
         return result;
     }
 
     @Override
     public CategoriesModel convertToCategoriesModel(CategoriesModel categoriesModel) {
         CategoriesModel result = categoriesModel;
-        result.setCategory(EncodeUtils.encoding(categoriesModel.getCategory()));
+//        result.setCategory(EncodeUtils.encoding(categoriesModel.getCategory()));
         return result;
     }
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.model.NewsModel;
 import com.laptrinhjavaweb.model.UserModel;
 import com.laptrinhjavaweb.service.INewsService;
@@ -29,7 +30,7 @@ public class NewsAPI extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		NewsModel newsModel = HttpUtil.of(request.getReader()).toModel(NewsModel.class);
-		newsModel.setCreatedBy(((UserModel) SessionUtils.getInstance().getValue(request, "USERMODEL")).getUserName());
+		newsModel.setCreatedBy(((UserModel) SessionUtils.getInstance().getValue(request, SystemConstant.USER_KEY_SESSION)).getUserName());
 		newsModel = newsService.save(newsModel);
 		System.out.print(newsModel);
 		mapper.writeValue(response.getOutputStream(), newsModel);
@@ -41,7 +42,7 @@ public class NewsAPI extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		NewsModel updateNews = HttpUtil.of(request.getReader()).toModel(NewsModel.class);
-		updateNews.setModifiedBy(((UserModel) SessionUtils.getInstance().getValue(request, "USERMODEL")).getUserName());
+		updateNews.setModifiedBy(((UserModel) SessionUtils.getInstance().getValue(request, SystemConstant.USER_KEY_SESSION)).getUserName());
 		updateNews = newsService.update(updateNews);
 		mapper.writeValue(response.getOutputStream(), updateNews);
 
