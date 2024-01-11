@@ -1,14 +1,17 @@
 package com.laptrinhjavaweb.controller.admin.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.PagingModel;
+import com.laptrinhjavaweb.model.UserModel;
 import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
 import com.laptrinhjavaweb.model.response.BlogsResponseModel;
 import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
 import com.laptrinhjavaweb.model.response.recent.BlogsRecentResponseModel;
 import com.laptrinhjavaweb.service.IBlogsService;
 import com.laptrinhjavaweb.utils.HttpUtil;
+import com.laptrinhjavaweb.utils.SessionUtils;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -37,10 +40,22 @@ public class BlogsAPI extends HttpServlet {
             mapper.writeValue(response.getOutputStream(), results);
         } else {
             BlogsModel blogsModel = HttpUtil.of(request.getReader()).toModel(BlogsModel.class);
-//        newsModel.setCreatedBy(((UserModel) SessionUtils.getInstance().getValue(request, "USERMODEL")).getUserName());
+            blogsModel.setCreatedBy(((UserModel) SessionUtils.getInstance().getValue(request, "USERMODEL")).getUserName());
             BlogsResponseModel result = blogsService.insert(blogsModel);
             mapper.writeValue(response.getOutputStream(), result);
         }
+    }
+
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        BlogsModel updateBlogs = HttpUtil.of(request.getReader()).toModel(BlogsModel.class);
+        updateBlogs.setModifiedBy(((UserModel) SessionUtils.getInstance().getValue(request, SystemConstant.USER_KEY_SESSION)).getUserName());
+        BlogsResponseModel result = blogsService.update(updateBlogs);
+        mapper.writeValue(response.getOutputStream(), result);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -164,6 +179,16 @@ public class BlogsAPI extends HttpServlet {
                 response.getWriter().write("Blog not found");
             }
         }
+    }
+
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        BlogsModel blogsModel = HttpUtil.of(request.getReader()).toModel(BlogsModel.class);
+        blogsService.delete(blogsModel.getIds());
+        mapper.writeValue(response.getOutputStream(), "{}");
     }
 
 }

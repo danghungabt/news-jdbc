@@ -18,6 +18,10 @@ public class BlogsMapper implements RowMapper<BlogsModel> {
 			blog.setCategoryId(resultSet.getLong("categoryid"));
 			blog.setDateSubmitted(resultSet.getString("datesubmitted"));
 			blog.setContent(resultSet.getString("content"));
+			blog.setCreatedBy(resultSet.getString("createdby"));
+			blog.setCreatedDate(resultSet.getTimestamp("createddate"));
+			blog.setModifiedDate(resultSet.getTimestamp("modifieddate"));
+			blog.setModifiedBy(resultSet.getString("modifiedby"));
 			return blog;
 		} catch (SQLException e) {
 			return null;

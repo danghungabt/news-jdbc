@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.dao;
 
+import com.laptrinhjavaweb.builder.BlogsBuilder;
 import com.laptrinhjavaweb.model.BlogWithCategoryModel;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.paging.Pageable;
@@ -8,6 +9,7 @@ import java.util.List;
 
 public interface IBlogsDAO extends GenericDAO<BlogsModel> {
     Long insert(BlogsModel blogsModel);
+    void update(BlogsModel blogsModel);
     BlogsModel findOne(Long id);
     List<BlogsModel> findAll();
     BlogsModel findOneBySlug(String slugBlog);
@@ -23,5 +25,9 @@ public interface IBlogsDAO extends GenericDAO<BlogsModel> {
 
     int getTotalItem();
     int getTotalItemByCategoryId(Long categoryId);
+
+    List<BlogsModel> findByCondition(Pageable pageable, BlogsBuilder builder);
+    int getTotalItemByCondition(BlogsBuilder builder);
+    void delete(long id);
 
 }

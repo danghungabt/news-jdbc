@@ -6,13 +6,11 @@ import com.laptrinhjavaweb.dao.ICommentsDAO;
 import com.laptrinhjavaweb.model.BlogWithCategoryModel;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.CategoriesModel;
-import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
-import com.laptrinhjavaweb.model.response.BlogsResponseModel;
-import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
-import com.laptrinhjavaweb.model.response.MiniBlogsResponseModel;
+import com.laptrinhjavaweb.model.response.*;
 import com.laptrinhjavaweb.model.response.recent.BlogsRecentResponseModel;
 import com.laptrinhjavaweb.utils.EncodeUtils;
 import com.laptrinhjavaweb.utils.StringUtils;
+import com.laptrinhjavaweb.utils.TimestampUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.modelmapper.ModelMapper;
 
@@ -103,4 +101,16 @@ public class BlogsConverter implements IBlogsConverter {
         result.setSlugCategory(categoriesModel.getSlugCategory());
         return result;
     }
+
+    @Override
+    public BlogsResponseServerModel convertToBlogResponseServer(BlogsModel blogsModel) {
+        BlogsResponseServerModel result = modelMapper.map(blogsModel, BlogsResponseServerModel.class);
+
+        result.setCreatedDateStr(TimestampUtils.convertToString(blogsModel.getCreatedDate()));
+        result.setModifiedDateStr(TimestampUtils.convertToString(blogsModel.getModifiedDate()));
+
+        return result;
+    }
+
+
 }

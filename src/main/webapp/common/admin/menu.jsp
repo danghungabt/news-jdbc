@@ -43,9 +43,9 @@
             <b class="arrow"></b>
             <ul class="submenu">
                 <li>
-                    <c:url var="listURL" value="/admin-news">
+                    <c:url var="listURL" value="/admin-blogs">
                         <c:param name="page" value="1"/>
-                        <c:param name="maxPageItem" value="2"/>
+                        <c:param name="maxPageItem" value="5"/>
                         <c:param name="sortName" value="title"/>
                         <c:param name="sortBy" value="desc"/>
                         <c:param name="type" value="list"/>

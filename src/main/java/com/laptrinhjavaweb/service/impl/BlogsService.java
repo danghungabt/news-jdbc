@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.service.impl;
 
+import com.laptrinhjavaweb.builder.BlogsBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.IBlogsConverter;
 import com.laptrinhjavaweb.converter.ICategoriesConverter;
@@ -8,16 +9,15 @@ import com.laptrinhjavaweb.dao.IBlogsDAO;
 import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.dao.ICommentsDAO;
 import com.laptrinhjavaweb.model.*;
-import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
-import com.laptrinhjavaweb.model.response.BlogsResponseModel;
-import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
-import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
+import com.laptrinhjavaweb.model.request.BlogsSearchRequestModel;
+import com.laptrinhjavaweb.model.response.*;
 import com.laptrinhjavaweb.model.response.recent.BlogsRecentResponseModel;
 import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.paging.Pageable;
 import com.laptrinhjavaweb.service.IBlogsService;
 import com.laptrinhjavaweb.sort.Sorter;
 import com.laptrinhjavaweb.utils.EncodeUtils;
+import com.laptrinhjavaweb.utils.TimestampUtils;
 
 import javax.inject.Inject;
 import java.sql.Timestamp;
@@ -46,7 +46,7 @@ public class BlogsService implements IBlogsService {
     @Override
     public BlogsResponseModel insert(BlogsModel blogsModel) {
         blogsModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-        blogsModel.setCreatedBy("admin");
+        blogsModel.setDateSubmitted(TimestampUtils.convertToString(new Timestamp(System.currentTimeMillis())));
         BlogsModel newBlog = blogsConverter.convertToBlogsModel(blogsModel);
         Long id = blogsDAO.insert(newBlog);
         return blogsConverter.convertToBlogsResponseModel(blogsDAO.findOne(id));
@@ -63,6 +63,13 @@ public class BlogsService implements IBlogsService {
             results.add(blogsConverter.convertToBlogsResponseModel(blogsDAO.findOne(id)));
         }
         return results;
+    }
+
+    @Override
+    public BlogsResponseModel update(BlogsModel blogsModel) {
+        blogsModel.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+        blogsDAO.update(blogsModel);
+        return blogsConverter.convertToBlogsResponseModel(blogsDAO.findOne(blogsModel.getId()));
     }
 
     @Override
@@ -339,5 +346,39 @@ public class BlogsService implements IBlogsService {
                 .collect(Collectors.toList()));
 
         return result;
+    }
+
+    @Override
+    public List<BlogsResponseServerModel> findByCondition(Pageable pageable, BlogsSearchRequestModel blogsSearchRequestModel) {
+
+        BlogsBuilder builder = convertToBlogBuilder(blogsSearchRequestModel);
+
+        return blogsDAO.findByCondition(pageable, builder).stream()
+                .map(item -> blogsConverter.convertToBlogResponseServer(item))
+                .collect(Collectors.toList());
+    }
+
+    private BlogsBuilder convertToBlogBuilder(BlogsSearchRequestModel blogsSearchRequestModel) {
+        BlogsBuilder result = new BlogsBuilder.Builder()
+                .setTitle(blogsSearchRequestModel.getTitle())
+                .setCategoriesId(blogsSearchRequestModel.getCategoriesId())
+                .setCreatedBy(blogsSearchRequestModel.getCreatedBy())
+                .setModifiedBy(blogsSearchRequestModel.getModifiedBy())
+                .build();
+        return result;
+    }
+
+    @Override
+    public int getTotalItemByCondition(BlogsSearchRequestModel blogsSearchRequestModel) {
+        BlogsBuilder builder = convertToBlogBuilder(blogsSearchRequestModel);
+
+        return blogsDAO.getTotalItemByCondition(builder);
+    }
+
+    @Override
+    public void delete(long[] ids) {
+        for (long id : ids) {
+            blogsDAO.delete(id);
+        }
     }
 }

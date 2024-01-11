@@ -7,6 +7,7 @@ import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
 import com.laptrinhjavaweb.paging.Pageable;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ICategoriesService {
     CategoriesResponseModel insert(CategoriesModel categoriesModel);
@@ -34,5 +35,7 @@ public interface ICategoriesService {
     int getTotalItemByCondition(CategoriesSearchRequestModel requestModel);
 
     void delete(long[] ids);
+
+    Map<Long, String> getMapCategories();
 
 }

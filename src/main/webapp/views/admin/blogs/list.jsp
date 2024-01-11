@@ -1,12 +1,12 @@
 <%@include file="/common/taglib.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<c:url var="APIurl" value="/api-admin-categories"/>
-<c:url var="CategoriesURL" value="/admin-categories"/>
+<c:url var="APIurl" value="/api-admin-blogs"/>
+<c:url var="BlogsURL" value="/admin-blogs"/>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Danh sách danh mục bài viết</title>
+    <title>Danh sách bài viết</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
                 <li>
                     <i class="ace-icon fa fa-home home-icon"></i>
                     <%--<a href="#">--%>
-                        Quản lý danh mục bài viết
+                    Quản lý bài viết
                     <%--</a>--%>
                 </li>
             </ul>
@@ -60,14 +60,31 @@
                                 </div>
                                 <div class="widget-body">
                                     <div class="widget-main">
-                                        <form action="${CategoriesURL}" id="formSubmit" method="get">
+                                        <form action="${BlogsURL}" id="formSubmit" method="get">
                                             <div class="form-horizontal">
                                                 <div class="form-group">
                                                     <div class="col-sm-6">
-                                                        <label for="category">Tên danh mục</label>
-                                                        <input type="text" id="category" name="category"
-                                                               value="${modelSearch.category}" class="form-control"/>
+                                                        <label for="title">Tên danh mục</label>
+                                                        <input type="text" id="title" name="title"
+                                                               value="${modelSearch.title}" class="form-control"/>
                                                     </div>
+                                                    <div class="col-sm-6">
+                                                        <label for="categoriesId">Danh mục bài viết</label>
+                                                        <select id="categoriesId" name="categoriesId"
+                                                                class="form-control">
+                                                            <option value="0" label="--Tất cả--"/>
+                                                            <c:forEach var="category" items="${categoriesMap}">
+                                                                <option value="${category.key}"
+                                                                        <c:if test="${modelSearch.categoriesId eq category.key}">selected</c:if>
+                                                                >
+                                                                        ${category.value}
+                                                                </option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
                                                     <div class="col-sm-6">
                                                         <label for="createdBy">Người tạo</label>
                                                         <select id="createdBy" name="createdBy" class="form-control">
@@ -75,6 +92,20 @@
                                                             <c:forEach var="user" items="${usersMap}">
                                                                 <option value="${user.key}"
                                                                         <c:if test="${modelSearch.createdBy eq user.key}">selected</c:if>
+                                                                >
+                                                                        ${user.value}
+                                                                </option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-sm-6">
+                                                        <label for="modifiedBy">Người cập nhận gần nhất</label>
+                                                        <select id="modifiedBy" name="modifiedBy" class="form-control">
+                                                            <option value="" label="--Tất cả--"/>
+                                                            <c:forEach var="user" items="${usersMap}">
+                                                                <option value="${user.key}"
+                                                                        <c:if test="${modelSearch.modifiedBy eq user.key}">selected</c:if>
                                                                 >
                                                                         ${user.value}
                                                                 </option>
@@ -92,8 +123,8 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" value="1" id="page" name="page"/>
-                                            <input type="hidden" value="2" id="maxPageItem" name="maxPageItem"/>
-                                            <input type="hidden" value="category" id="sortName" name="sortName"/>
+                                            <input type="hidden" value="5" id="maxPageItem" name="maxPageItem"/>
+                                            <input type="hidden" value="title" id="sortName" name="sortName"/>
                                             <input type="hidden" value="desc" id="sortBy" name="sortBy"/>
                                             <input type="hidden" value="list" id="type" name="type"/>
                                         </form>
@@ -108,17 +139,19 @@
                         <div class="col-xs-12">
                             <div class="pull-right tableTools-container">
                                 <div class="dt-buttons btn-overlap btn-group">
-                                    <button id="btnAdd" type="button"
-                                            class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
-                                            data-toggle="tooltip" title='Thêm danh mục bài viết'
-                                            onclick="assignmentBuilding(0)">
-																<span>
-																	<i class="fa fa-plus-circle bigger-110 purple"></i>
-																</span>
-                                    </button>
+                                    <c:url var="createURL" value="/admin-blogs">
+                                        <c:param name="type" value="edit"/>
+                                    </c:url>
+                                    <a flag="info"
+                                       class="dt-button buttons-colvis btn btn-white btn-primary btn-bold"
+                                       data-toggle="tooltip" title='Thêm bài viết' href='${createURL}'>
+															<span>
+																<i class="fa fa-plus-circle bigger-110 purple"></i>
+															</span>
+                                    </a>
                                     <button id="btnDelete" type="button"
                                             class="dt-button buttons-html5 btn btn-white btn-primary btn-bold"
-                                            data-toggle="tooltip" title='Xóa danh mục bài viết'
+                                            data-toggle="tooltip" title='Xóa bài viết'
                                             onclick="warningBeforeDelete()">
 																<span>
 																	<i class="fa fa-trash-o bigger-110 pink"></i>
@@ -137,10 +170,13 @@
                                     <thead>
                                     <tr>
                                         <th><input type="checkbox" id="checkAll"/></th>
-                                        <th>Tên danh mục</th>
-                                        <th>Slug danh mục bài viết</th>
-                                        <th>Người thêm</th>
-                                        <th>Thao tác</th>
+                                        <th>Tên bài viết</th>
+                                        <th>Slug bài viết</th>
+                                        <th class="col-md-1">Ngày đăng</th>
+                                        <th class="col-md-1">Người đăng</th>
+                                        <th class="col-md-1">Ngày cập nhật gần nhất</th>
+                                        <th class="col-md-1">Người cập nhật gần nhất</th>
+                                        <th class="col-md-1">Thao tác</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -148,19 +184,21 @@
                                         <tr>
                                             <td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"/>
                                             </td>
-                                            <td>${item.category}</td>
-                                            <td>${item.slugCategory}</td>
+                                            <td>${item.title}</td>
+                                            <td>${item.slugBlog}</td>
+                                            <td>${item.createdDateStr}</td>
                                             <td>${item.createdBy}</td>
+                                            <td>${item.modifiedDateStr}</td>
+                                            <td>${item.modifiedBy}</td>
                                             <td>
-                                                <button id="btnUpdate" type="button"
-                                                        class="btn btn-sm btn-primary btn-edit"
-                                                        data-toggle="tooltip" title='Cập nhật danh mục bài viết'
-                                                        onclick="assignmentBuilding(${item.id})">
-																<span>
-																	<i class="fa fa-pencil-square-o"
-                                                                       aria-hidden="true"></i>
-																</span>
-                                                </button>
+                                                <c:url var="editURL" value="/admin-blogs">
+                                                    <c:param name="type" value="edit"/>
+                                                    <c:param name="id" value="${item.id}"/>
+                                                </c:url>
+                                                <a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
+                                                   title="Cập nhật bài viết" href='${editURL}'>
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -207,10 +245,10 @@
 
 <!-- /.main-content -->
 <script type="text/javascript">
-    $("#loadingComponent").hide();
+    $("#tableData").show();
     var totalPage = ${model.totalPage};
     var currentPage = ${model.page};
-    var limit = 2;
+    var limit = ${model.maxPageItem};
     $(function () {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPage,
@@ -222,7 +260,7 @@
                 if (currentPage != page) {
                     $('#maxPageItem').val(limit);
                     $('#page').val(page);
-                    $('#sortName').val('category');
+                    $('#sortName').val('title');
                     $('#sortBy').val('desc');
                     $('#type').val('list');
                     $('#formSubmit').submit();
@@ -244,11 +282,11 @@
         data['ids'] = ids;
         showAlertBeforeDelete(function () {
             event.preventDefault();
-            deleteCategories(data);
+            deleteBlogs(data);
         });
     };
 
-    function deleteCategories(data) {
+    function deleteBlogs(data) {
         $.ajax({
             url: '${APIurl}',
             type: 'DELETE',
@@ -256,10 +294,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=delete_success";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=title&sortBy=desc&message=delete_success";
             },
             error: function (error) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=title&sortBy=desc&message=error_system";
             }
         });
     }
@@ -334,7 +372,6 @@
 
     $('#btnSaveCategories').click(function (e) {
         e.preventDefault();
-        $("#loadingComponent").show();
         var data = {};
         var formData = $('#formSubmitAPI').serializeArray();
         $.each(formData, function (i, v) {
@@ -360,10 +397,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=insert_success";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=insert_success";
             },
             error: function (error) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
             }
         });
     }
@@ -376,19 +413,17 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                $("#loadingComponent").hide();
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=update_success";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=update_success";
             },
             error: function (error) {
-                $("#loadingComponent").hide();
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
             }
         });
     }
 
     function listenEventInput() {
         // Lắng nghe sự kiện input trên các trường nhập liệu
-        $('#categoryAPI, #slugAPI').on('input', function() {
+        $('#categoryAPI, #slugAPI').on('input', function () {
             // Kiểm tra nếu cả hai trường đã được điền
             if ($('#categoryAPI').val().trim() !== '' && $('#slugAPI').val().trim() !== '') {
                 $('#btnSaveCategories').prop('disabled', false); // Kích hoạt nút "Lưu"
@@ -402,13 +437,13 @@
     }
 
     // Sự kiện khi checkbox "Check All" thay đổi trạng thái
-    $('#checkAll').change(function() {
+    $('#checkAll').change(function () {
         $('input[type="checkbox"][id^="checkbox_"]').prop('checked', $(this).prop('checked'));
         updateDeleteButtonStatus();
     });
 
     // Sự kiện khi bất kỳ checkbox riêng lẻ nào thay đổi trạng thái
-    $('input[type="checkbox"][id^="checkbox_"]').change(function() {
+    $('input[type="checkbox"][id^="checkbox_"]').change(function () {
         if (!$(this).prop('checked')) {
             $('#checkAll').prop('checked', false);
         } else {

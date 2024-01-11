@@ -11,10 +11,13 @@ import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
 import com.laptrinhjavaweb.paging.PageRequest;
 import com.laptrinhjavaweb.paging.Pageable;
 import com.laptrinhjavaweb.service.ICategoriesService;
+import com.laptrinhjavaweb.utils.TimestampUtils;
 
 import javax.inject.Inject;
 import java.sql.Timestamp;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CategoriesService implements ICategoriesService {
@@ -38,6 +41,7 @@ public class CategoriesService implements ICategoriesService {
         CategoriesModel oldCategories = categoriesDAO.findOne(categoriesModel.getId());
         categoriesModel.setCreatedBy(oldCategories.getCreatedBy());
         categoriesModel.setCreatedDate(oldCategories.getCreatedDate());
+//        categoriesModel.setModifiedDate(TimestampUtils.currentTimestampInHCM());
         categoriesModel.setModifiedDate(new Timestamp(System.currentTimeMillis()));
         categoriesDAO.update(categoriesModel);
         return categoriesConverter.convertToCategoriesResponseModel(categoriesDAO.findOne(categoriesModel.getId()));
@@ -129,6 +133,16 @@ public class CategoriesService implements ICategoriesService {
         for (long id : ids) {
             categoriesDAO.delete(id);
         }
+    }
+
+    @Override
+    public Map<Long, String> getMapCategories() {
+        Map<Long, String> result = new LinkedHashMap<>();
+        List<CategoriesModel> categoriesModels = categoriesDAO.findAll();
+        for(CategoriesModel item: categoriesModels){
+            result.put(item.getId(), item.getCategory());
+        }
+        return result;
     }
 
 }

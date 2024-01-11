@@ -69,6 +69,41 @@
         .fixed-alert button{
             margin-left: 12px;
         }
+
+        /* Trong file CSS của bạn */
+        .loading-component {
+            display: none; /* Ban đầu ẩn đi */
+            /* Thêm các thuộc tính để căn giữa loading */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .loading-spinner {
+            /* Thêm CSS để tạo hiệu ứng loading spinner, ví dụ sử dụng animation */
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
     </style>
 </head>
 <body class="no-skin">

@@ -4,10 +4,8 @@ import com.laptrinhjavaweb.model.BlogWithCategoryModel;
 import com.laptrinhjavaweb.model.BlogsModel;
 import com.laptrinhjavaweb.model.CategoriesModel;
 import com.laptrinhjavaweb.model.PagingModel;
-import com.laptrinhjavaweb.model.response.BlogWithCategoryResponseModel;
-import com.laptrinhjavaweb.model.response.BlogsResponseModel;
-import com.laptrinhjavaweb.model.response.CategoriesResponseModel;
-import com.laptrinhjavaweb.model.response.MiniBlogWithCategoryResponseModel;
+import com.laptrinhjavaweb.model.request.BlogsSearchRequestModel;
+import com.laptrinhjavaweb.model.response.*;
 import com.laptrinhjavaweb.model.response.recent.BlogsRecentResponseModel;
 import com.laptrinhjavaweb.paging.Pageable;
 
@@ -16,6 +14,7 @@ import java.util.List;
 public interface IBlogsService {
     BlogsResponseModel insert(BlogsModel blogsModel);
     List<BlogsResponseModel> insertAll(List<BlogsModel> blogsModels);
+    BlogsResponseModel update(BlogsModel blogsModel);
     List<BlogsModel> findAll();
     List<BlogsResponseModel> findAllClient();
     BlogsModel findOne(Long id);
@@ -35,4 +34,9 @@ public interface IBlogsService {
     PagingModel<MiniBlogWithCategoryResponseModel> findAllClientWithPageablePlus(Integer page);
     PagingModel<MiniBlogWithCategoryResponseModel> findByCategoryIdClientWithPageablePlus(Long categoryId, Integer page);
     PagingModel<MiniBlogWithCategoryResponseModel> findByKeyClientWithPageablePlus(String key, Integer page);
+
+    List<BlogsResponseServerModel> findByCondition(Pageable pageable, BlogsSearchRequestModel blogsSearchRequestModel);
+    int getTotalItemByCondition(BlogsSearchRequestModel blogsSearchRequestModel);
+
+    void delete(long[] ids);
 }

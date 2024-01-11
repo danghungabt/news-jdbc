@@ -16,5 +16,5 @@ public interface IBlogsConverter {
     MiniBlogWithCategoryResponseModel convertToMiniBlogWithCategoryModel(
             BlogWithCategoryModel blogWithCategoryModel, Integer countComment);
     BlogsRecentResponseModel convertToBlogRecent(BlogsModel blogsModel, CategoriesModel categoriesModel);
-
+    BlogsResponseServerModel convertToBlogResponseServer(BlogsModel blogsModel);
 }

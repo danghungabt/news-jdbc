@@ -24,6 +24,10 @@ public class BlogWithCategoryMapper implements RowMapper<BlogWithCategoryModel> 
 			blog.setCategoryId(resultSet.getLong("b.categoryid"));
 			blog.setDateSubmitted(resultSet.getString("b.datesubmitted"));
 			blog.setContent(resultSet.getString("b.content"));
+			blog.setCreatedBy(resultSet.getString("b.createdby"));
+			blog.setCreatedDate(resultSet.getTimestamp("b.createddate"));
+			blog.setModifiedDate(resultSet.getTimestamp("b.modifieddate"));
+			blog.setModifiedBy(resultSet.getString("b.modifiedby"));
 
 			CategoriesModel category = new CategoriesModel();
 			category.setId(resultSet.getLong("c.id"));

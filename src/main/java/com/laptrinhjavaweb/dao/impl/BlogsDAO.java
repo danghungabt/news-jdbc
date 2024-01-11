@@ -1,5 +1,6 @@
 package com.laptrinhjavaweb.dao.impl;
 
+import com.laptrinhjavaweb.builder.BlogsBuilder;
 import com.laptrinhjavaweb.dao.IBlogsDAO;
 import com.laptrinhjavaweb.mapper.BlogWithCategoryMapper;
 import com.laptrinhjavaweb.mapper.BlogsMapper;
@@ -20,6 +21,16 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
         sql.append(" VALUES(?, ?, ?, ?, ?, ?, ?)");
         return insert(sql.toString(), blogsModel.getTitle(), blogsModel.getSlugBlog(), blogsModel.getDateSubmitted(),
                 blogsModel.getCategoryId(), blogsModel.getContent(), blogsModel.getCreatedDate(), blogsModel.getCreatedBy());
+    }
+
+    @Override
+    public void update(BlogsModel blogsModel) {
+        StringBuilder sql = new StringBuilder("UPDATE blogs SET title = ?, slugblog = ?,");
+        sql.append(" categoryid = ?, content = ?,");
+        sql.append(" modifieddate = ?, modifiedby = ? WHERE id = ?");
+        update(sql.toString(), blogsModel.getTitle(), blogsModel.getSlugBlog(),
+                blogsModel.getCategoryId(), blogsModel.getContent(),
+                blogsModel.getModifiedDate(), blogsModel.getModifiedBy(), blogsModel.getId());
     }
 
     @Override
@@ -118,5 +129,49 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
     public int getTotalItemByCategoryId(Long categoryId) {
         String sql = "SELECT count(*) FROM blogs WHERE categoryid = ?";
         return count(sql, categoryId);
+    }
+
+    @Override
+    public List<BlogsModel> findByCondition(Pageable pageable, BlogsBuilder builder) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM blogs WHERE 1=1");
+        sql = buildQueryCommon(sql, builder);
+        sql = PagingUtils.pagingQuery(pageable, sql);
+
+        return query(sql.toString(), new BlogsMapper(), builder.getCategoriesId(),
+                builder.getCreatedBy(), builder.getModifiedBy());
+    }
+
+    private StringBuilder buildQueryCommon(StringBuilder sql, BlogsBuilder builder) {
+        if(builder.getTitle() != null && builder.getTitle() != ""){
+            sql.append(" AND title LIKE '%"+builder.getTitle()+"%'");
+        }
+
+        if(builder.getCategoriesId() != null && builder.getCategoriesId() > 0){
+            sql.append(" AND categoryid = ?");
+        }
+
+        if(builder.getCreatedBy() != null && builder.getCreatedBy() != ""){
+            sql.append(" AND createdby = ?");
+        }
+
+        if(builder.getModifiedBy() != null && builder.getModifiedBy() != ""){
+            sql.append(" AND modifiedby = ?");
+        }
+
+        return sql;
+    }
+
+    @Override
+    public int getTotalItemByCondition(BlogsBuilder builder) {
+        StringBuilder sql = new StringBuilder("SELECT count(*) FROM blogs WHERE 1=1");
+        sql = buildQueryCommon(sql, builder);
+        return count(sql.toString(), builder.getCategoriesId(),
+                builder.getCreatedBy(), builder.getModifiedBy());
+    }
+
+    @Override
+    public void delete(long id) {
+        String sql = "DELETE FROM blogs WHERE id = ?";
+        update(sql, id);
     }
 }
