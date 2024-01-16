@@ -92,7 +92,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" value="1" id="page" name="page"/>
-                                            <input type="hidden" value="2" id="maxPageItem" name="maxPageItem"/>
+                                            <input type="hidden" value="4" id="maxPageItem" name="maxPageItem"/>
                                             <input type="hidden" value="category" id="sortName" name="sortName"/>
                                             <input type="hidden" value="desc" id="sortBy" name="sortBy"/>
                                             <input type="hidden" value="list" id="type" name="type"/>
@@ -210,7 +210,7 @@
     $("#loadingComponent").hide();
     var totalPage = ${model.totalPage};
     var currentPage = ${model.page};
-    var limit = 2;
+    var limit = 4;
     $(function () {
         window.pagObj = $('#pagination').twbsPagination({
             totalPages: totalPage,
@@ -256,10 +256,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=delete_success";
+                window.location.href = "${CategoriesURL}?type=list&maxPageItem=4&page=1&sortName=category&sortBy=desc&message=delete_success";
             },
             error: function (error) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
+                window.location.href = "${CategoriesURL}?type=list&maxPageItem=4&page=1&sortName=category&sortBy=desc&message=error_system";
             }
         });
     }
@@ -360,10 +360,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=insert_success";
+                window.location.href = "${CategoriesURL}?type=list&maxPageItem=4&page=1&sortName=category&sortBy=desc&message=insert_success";
             },
             error: function (error) {
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
+                window.location.href = "${CategoriesURL}?type=list&maxPageItem=4&page=1&sortName=category&sortBy=desc&message=error_system";
             }
         });
     }
@@ -377,11 +377,11 @@
             dataType: 'json',
             success: function (result) {
                 $("#loadingComponent").hide();
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=update_success";
+                window.location.href = "${CategoriesURL}?type=list&maxPageItem=4&page=1&sortName=category&sortBy=desc&message=update_success";
             },
             error: function (error) {
                 $("#loadingComponent").hide();
-                window.location.href = "${CategoriesURL}?type=list&maxPageItem=2&page=1&sortName=category&sortBy=desc&message=error_system";
+                window.location.href = "${CategoriesURL}?type=list&maxPageItem=4&page=1&sortName=category&sortBy=desc&message=error_system";
             }
         });
     }

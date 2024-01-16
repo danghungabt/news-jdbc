@@ -84,8 +84,6 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
         return query(sql.toString(), new BlogsMapper(), categoryId);
     }
 
-
-
     @Override
     public List<BlogsModel> findByKeyWithPageable(String key, Pageable pageable) {
         StringBuilder sql = new StringBuilder("SELECT * FROM blogs WHERE title LIKE '%"+ key +
@@ -120,6 +118,15 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
     }
 
     @Override
+    public List<BlogWithCategoryModel> findByKeyWithPageablePlus(String key, Pageable pageable) {
+        StringBuilder sql = new StringBuilder("SELECT * FROM blogs b inner join categories c on b.categoryid = c.id WHERE b.title LIKE '%"+ key +
+                "%' OR b.content LIKE '%" + key + "%'");
+        sql = PagingUtils.pagingQuery(pageable, sql);
+
+        return query(sql.toString(), new BlogWithCategoryMapper());
+    }
+
+    @Override
     public int getTotalItem() {
         String sql = "SELECT count(*) FROM blogs";
         return count(sql);
@@ -129,6 +136,13 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
     public int getTotalItemByCategoryId(Long categoryId) {
         String sql = "SELECT count(*) FROM blogs WHERE categoryid = ?";
         return count(sql, categoryId);
+    }
+
+    @Override
+    public int getTotalItemByKey(String key) {
+        String sql = "SELECT * FROM blogs WHERE title LIKE '%"+ key +
+                "%' OR content LIKE '%" + key + "%'";
+        return count(sql);
     }
 
     @Override

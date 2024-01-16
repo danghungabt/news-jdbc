@@ -33,6 +33,7 @@ public class CategoriesAPI extends HttpServlet {
         response.setContentType("application/json");
         CategoriesModel categoriesModel = HttpUtil.of(request.getReader()).toModel(CategoriesModel.class);
         categoriesModel.setCreatedBy(((UserModel) SessionUtils.getInstance().getValue(request, SystemConstant.USER_KEY_SESSION)).getUserName());
+//        categoriesModel.setCreatedBy("admin");
         CategoriesResponseModel result = categoriesService.insert(categoriesModel);
         mapper.writeValue(response.getOutputStream(), result);
     }

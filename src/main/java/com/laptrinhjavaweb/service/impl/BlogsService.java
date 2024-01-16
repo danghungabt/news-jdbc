@@ -167,7 +167,6 @@ public class BlogsService implements IBlogsService {
                 .filter(item -> item.getTitle().contains(key) || item.getContent().contains(key))
                 .collect(Collectors.toList());
 
-
         result.setTotalItem(allBlogs.size());
         result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
 
@@ -297,7 +296,7 @@ public class BlogsService implements IBlogsService {
 
     @Override
     public PagingModel<MiniBlogWithCategoryResponseModel> findByKeyClientWithPageablePlus(String key, Integer page) {
-        List<CountCommentModel> countCommentModels = commentsDAO.getCountComment();
+        /*List<CountCommentModel> countCommentModels = commentsDAO.getCountComment();
 
         PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
         result.setPage(page);
@@ -343,6 +342,28 @@ public class BlogsService implements IBlogsService {
 
         result.setListResult(IntStream.range(inclusive, exclusive)
                 .mapToObj(index -> blogWithCategoryResponseModels.get(index))
+                .collect(Collectors.toList()));*/
+
+        Pageable pageable = new PageRequest(page, SystemConstant.PAGE_SIZE);
+        PagingModel<MiniBlogWithCategoryResponseModel> result = new PagingModel<MiniBlogWithCategoryResponseModel>();
+        result.setPage(page);
+        result.setPageSize(SystemConstant.PAGE_SIZE);
+        result.setTotalItem(blogsDAO.getTotalItemByKey(key));
+        result.setTotalPage((int) Math.ceil((double) result.getTotalItem() / result.getPageSize()));
+
+        List<CountCommentModel> countCommentModels = commentsDAO.getCountComment();
+
+        result.setListResult(blogsDAO.findByKeyWithPageablePlus(key, pageable).stream()
+                .map(item -> {
+                    for (CountCommentModel countCommentModel : countCommentModels){
+                        if(countCommentModel.getBlogId() == item.getBlogsModel().getId()){
+                            return blogsConverter.convertToMiniBlogWithCategoryModel(item,
+                                    countCommentModel.getCount());
+                        }
+                    }
+                    return blogsConverter.convertToMiniBlogWithCategoryModel(item,
+                            0);
+                })
                 .collect(Collectors.toList()));
 
         return result;

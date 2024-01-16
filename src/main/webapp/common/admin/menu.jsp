@@ -69,7 +69,7 @@
                 <li>
                     <c:url var="listURL" value="/admin-categories">
                         <c:param name="page" value="1"/>
-                        <c:param name="maxPageItem" value="2"/>
+                        <c:param name="maxPageItem" value="4"/>
                         <c:param name="sortName" value="category"/>
                         <c:param name="sortBy" value="desc"/>
                         <c:param name="type" value="list"/>
