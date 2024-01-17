@@ -47,7 +47,7 @@ public class CommentsConverter implements ICommentsConverter {
         CommentsRecentResponseModel result = modelMapper.map(
                 commentsModel, CommentsRecentResponseModel.class);
 //        result.setName(StringEscapeUtils.unescapeJava(commentsModel.getName()));
-//        result.setBlog(blogsConverter.convertToBlogRecent(blogsModel, categoriesModel));
+        result.setBlog(blogsConverter.convertToBlogRecent(blogsModel, categoriesModel));
         return result;
     }
 }

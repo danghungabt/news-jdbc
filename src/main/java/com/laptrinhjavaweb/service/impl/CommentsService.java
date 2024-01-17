@@ -80,10 +80,6 @@ public class CommentsService implements ICommentsService {
 
         return commentsDAO.getRecent().stream()
                 .map(item -> {
-
-                    BlogsModel tempBlog = new BlogsModel();
-                    CategoriesModel tempCategory = new CategoriesModel();
-
                     for(BlogsModel blogsModel: blogsModels){
                         if(blogsModel.getId() == item.getBlogId()){
                             for(CategoriesModel categoriesModel: categoriesModels){

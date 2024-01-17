@@ -140,7 +140,7 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
 
     @Override
     public int getTotalItemByKey(String key) {
-        String sql = "SELECT * FROM blogs WHERE title LIKE '%"+ key +
+        String sql = "SELECT count(*) FROM blogs WHERE title LIKE '%"+ key +
                 "%' OR content LIKE '%" + key + "%'";
         return count(sql);
     }
