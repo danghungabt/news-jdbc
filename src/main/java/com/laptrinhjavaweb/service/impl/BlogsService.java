@@ -399,6 +399,7 @@ public class BlogsService implements IBlogsService {
     @Override
     public void delete(long[] ids) {
         for (long id : ids) {
+            commentsDAO.deleteByBlogId(id);
             blogsDAO.delete(id);
         }
     }

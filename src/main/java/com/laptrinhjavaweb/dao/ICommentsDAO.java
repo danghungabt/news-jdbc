@@ -14,4 +14,6 @@ public interface ICommentsDAO extends GenericDAO<CommentsModel> {
     List<CommentsModel> getRecent();
     Integer getTotalItemByBlogId(Long id);
     List<CountCommentModel> getCountComment();
+
+    void deleteByBlogId(long blogId);
 }

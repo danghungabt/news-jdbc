@@ -61,4 +61,10 @@ public class CommentsDAO extends AbstractDAO<CommentsModel> implements IComments
         String sql = "SELECT blogid, count(*) as count FROM comments group by blogid";
         return query(sql, new CountCommentMapper());
     }
+
+    @Override
+    public void deleteByBlogId(long blogId) {
+        String sql = "DELETE FROM comments WHERE blogid = ?";
+        update(sql, blogId);
+    }
 }

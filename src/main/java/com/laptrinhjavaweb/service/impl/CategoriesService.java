@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.service.impl;
 import com.laptrinhjavaweb.builder.CategoriesBuilder;
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.converter.ICategoriesConverter;
+import com.laptrinhjavaweb.dao.IBlogsDAO;
 import com.laptrinhjavaweb.dao.ICategoriesDAO;
 import com.laptrinhjavaweb.model.CategoriesModel;
 import com.laptrinhjavaweb.model.PagingModel;
@@ -24,6 +25,9 @@ public class CategoriesService implements ICategoriesService {
 
     @Inject
     private ICategoriesDAO categoriesDAO;
+
+    @Inject
+    IBlogsDAO blogsDAO;
 
     @Inject
     private ICategoriesConverter categoriesConverter;
@@ -131,6 +135,7 @@ public class CategoriesService implements ICategoriesService {
     @Override
     public void delete(long[] ids) {
         for (long id : ids) {
+            blogsDAO.deleteByCategoryId(id);
             categoriesDAO.delete(id);
         }
     }

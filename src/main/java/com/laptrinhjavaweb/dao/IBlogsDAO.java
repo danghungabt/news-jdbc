@@ -33,5 +33,6 @@ public interface IBlogsDAO extends GenericDAO<BlogsModel> {
     List<BlogsModel> findByCondition(Pageable pageable, BlogsBuilder builder);
     int getTotalItemByCondition(BlogsBuilder builder);
     void delete(long id);
+    void deleteByCategoryId(long categoryId);
 
 }

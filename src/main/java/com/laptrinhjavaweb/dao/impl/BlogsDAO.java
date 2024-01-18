@@ -188,4 +188,10 @@ public class BlogsDAO extends AbstractDAO<BlogsModel> implements IBlogsDAO {
         String sql = "DELETE FROM blogs WHERE id = ?";
         update(sql, id);
     }
+
+    @Override
+    public void deleteByCategoryId(long categoryId) {
+        String sql = "DELETE FROM blogs WHERE categoryid = ?";
+        update(sql, categoryId);
+    }
 }

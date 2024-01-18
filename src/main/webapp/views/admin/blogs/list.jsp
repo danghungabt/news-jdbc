@@ -294,10 +294,10 @@
             data: JSON.stringify(data),
             dataType: 'json',
             success: function (result) {
-                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=title&sortBy=desc&message=delete_success";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=5&page=1&sortName=title&sortBy=desc&message=delete_success";
             },
             error: function (error) {
-                window.location.href = "${BlogsURL}?type=list&maxPageItem=2&page=1&sortName=title&sortBy=desc&message=error_system";
+                window.location.href = "${BlogsURL}?type=list&maxPageItem=5&page=1&sortName=title&sortBy=desc&message=error_system";
             }
         });
     }
